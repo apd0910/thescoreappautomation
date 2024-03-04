@@ -1,0 +1,2115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.11.8 on win32)" generated="2024-03-04T12:20:48.848612" rpa="false" schemaversion="5">
+<suite id="s1" name="SearchTeamDataDrivenTest" source="C:\Users\wzwjq0\PycharmProjects\thescorerobot\TestRunner\..\Tests\SearchTeamDataDrivenTest.robot">
+<test id="s1-t1" name="Search Team functionality Test" line="20">
+<kw name="Start Appium Server" owner="General" type="SETUP">
+<kw name="Is Platform Windows" owner="utility">
+<msg time="2024-03-04T12:20:49.738558" level="INFO">${os} = windows</msg>
+<var>${os}</var>
+<status status="PASS" start="2024-03-04T12:20:49.398012" elapsed="0.340546"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${os}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-03-04T12:20:49.738558" elapsed="0.000000"/>
+</kw>
+<if>
+<branch type="IF" condition="'${os}' == 'windows'">
+<kw name="Stop Appium Server" owner="General">
+<kw name="Is Platform Windows" owner="utility">
+<msg time="2024-03-04T12:20:49.743090" level="INFO">${os} = windows</msg>
+<var>${os}</var>
+<status status="PASS" start="2024-03-04T12:20:49.743090" elapsed="0.000000"/>
+</kw>
+<if>
+<branch type="IF" condition="'${os}' == 'windows'">
+<kw name="Execute Command" owner="utility">
+<msg time="2024-03-04T12:20:50.151448" level="INFO">Execute Command - taskkill /F /IM node.exe /T</msg>
+<arg>taskkill /F /IM node.exe /T</arg>
+<status status="PASS" start="2024-03-04T12:20:49.743090" elapsed="0.408358"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:20:49.743090" elapsed="0.408358"/>
+</branch>
+<status status="PASS" start="2024-03-04T12:20:49.743090" elapsed="0.408358"/>
+</if>
+<status status="PASS" start="2024-03-04T12:20:49.738558" elapsed="0.412890"/>
+</kw>
+<kw name="Execute Command" owner="utility">
+<msg time="2024-03-04T12:20:50.449938" level="INFO">Execute Command - start cmd /C appium --base-path /wd/hub --relaxed-security --log-timestamp</msg>
+<arg>start cmd /C appium --base-path /wd/hub --relaxed-security --log-timestamp</arg>
+<status status="PASS" start="2024-03-04T12:20:50.151448" elapsed="0.298490"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:20:49.738558" elapsed="0.711380"/>
+</branch>
+<status status="PASS" start="2024-03-04T12:20:49.738558" elapsed="0.711380"/>
+</if>
+<status status="PASS" start="2024-03-04T12:20:49.398012" elapsed="1.051926"/>
+</kw>
+<kw name="Search Team">
+<kw name="Login to TheScore App" owner="TheScoreKeywords">
+<kw name="Open TheScore App" owner="TheScoreKeywords">
+<kw name="Open Application" owner="AppiumLibrary">
+<arg>${remoteURL}</arg>
+<arg>platformName=${platformName}</arg>
+<arg>deviceName=${deviceName}</arg>
+<arg>appPackage=${appPackage}</arg>
+<arg>appActivity=${appActivity}</arg>
+<doc>Opens a new application to given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/server-args.md
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | no     | alias             |
+| strict_ssl          | No     | allows you to send commands to an invalid certificate host like a self-signed one. |</doc>
+<status status="PASS" start="2024-03-04T12:20:50.449938" elapsed="16.592521"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:20:50.449938" elapsed="16.592521"/>
+</kw>
+<kw name="Verify Welcome Page is Displayed" owner="WelcomePage">
+<kw name="Verify Welcome Icon is Displayed in Welcome Page" owner="WelcomePage">
+<kw name="Verify Element Visibility" owner="General">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:21:09.482248" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/icon_welcome']</msg>
+<arg>${ele}</arg>
+<arg>timeout=${pageloadtimeout}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:21:07.042459" elapsed="2.439789"/>
+</kw>
+<arg>${welcomeIconWelcomePage}</arg>
+<status status="PASS" start="2024-03-04T12:21:07.042459" elapsed="2.439789"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:21:07.042459" elapsed="2.439789"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:21:07.042459" elapsed="2.439789"/>
+</kw>
+<kw name="Click HAVE AN ACCOUNT? LOG IN text in Welcome Page" owner="WelcomePage">
+<kw name="Get Element Rect" owner="AppiumLibrary">
+<msg time="2024-03-04T12:21:09.670066" level="INFO">Element '//*[@resource-id='com.fivemobile.thescore:id/txt_sign_in']' rect: {'height': 57, 'width': 541, 'x': 270, 'y': 1688} </msg>
+<msg time="2024-03-04T12:21:09.670066" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/txt_sign_in']</msg>
+<msg time="2024-03-04T12:21:09.670066" level="INFO">${ele_loc} = {'height': 57, 'width': 541, 'x': 270, 'y': 1688}</msg>
+<var>${ele_loc}</var>
+<arg>${haveAnAccountLogInTextWelcomePage}</arg>
+<doc>Gets dimensions and coordinates of an element</doc>
+<status status="PASS" start="2024-03-04T12:21:09.482248" elapsed="0.187818"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-03-04T12:21:09.670066" level="INFO">{'height': 57, 'width': 541, 'x': 270, 'y': 1688}</msg>
+<arg>${ele_loc}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-03-04T12:21:09.670066" elapsed="0.000000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-03-04T12:21:09.670066" level="INFO">${x} = 796</msg>
+<var>${x}</var>
+<arg>${ele_loc}[x] + ${ele_loc}[width]-15</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-03-04T12:21:09.670066" elapsed="0.000000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-03-04T12:21:09.670066" level="INFO">${y} = 1740</msg>
+<var>${y}</var>
+<arg>${ele_loc}[y] + ${ele_loc}[height]-5</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-03-04T12:21:09.670066" elapsed="0.000000"/>
+</kw>
+<kw name="Log Many" owner="BuiltIn">
+<msg time="2024-03-04T12:21:09.670066" level="INFO">796</msg>
+<msg time="2024-03-04T12:21:09.670066" level="INFO">1740</msg>
+<arg>${x}</arg>
+<arg>${y}</arg>
+<doc>Logs the given messages as separate entries using the INFO level.</doc>
+<status status="PASS" start="2024-03-04T12:21:09.670066" elapsed="0.000000"/>
+</kw>
+<kw name="Click Element At Coordinates" owner="AppiumLibrary">
+<msg time="2024-03-04T12:21:09.670066" level="WARN">Keyword 'AppiumLibrary.Click Element At Coordinates' is deprecated. Since selenium v4, use other keywords.</msg>
+<msg time="2024-03-04T12:21:09.670066" level="INFO">Pressing at (796, 1740).</msg>
+<arg>${x}</arg>
+<arg>${y}</arg>
+<doc>*DEPRECATED!!* Since selenium v4, use other keywords.</doc>
+<status status="PASS" start="2024-03-04T12:21:09.670066" elapsed="1.213202"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:21:09.482248" elapsed="1.401020"/>
+</kw>
+<kw name="Verify Log In Page is Displayed" owner="LoginPage">
+<kw name="Element Should Contain Text" owner="AppiumLibrary">
+<msg time="2024-03-04T12:21:10.883268" level="INFO">Verifying element '//*[@resource-id='com.fivemobile.thescore:id/titleTextView']' contains text 'Log In'.</msg>
+<msg time="2024-03-04T12:21:11.041763" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/titleTextView']</msg>
+<arg>${loginTextLoginPage}</arg>
+<arg>Log In</arg>
+<doc>Verifies element identified by ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2024-03-04T12:21:10.883268" elapsed="0.158495"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:21:10.883268" elapsed="0.158495"/>
+</kw>
+<kw name="Enter Email Id in Email Textbox in Log In Page" owner="LoginPage">
+<kw name="Enter Text" owner="General">
+<kw name="Verify Element Visibility" owner="General">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:21:11.167600" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/email_input_edittext']</msg>
+<arg>${ele}</arg>
+<arg>timeout=${pageloadtimeout}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:21:11.057409" elapsed="0.110191"/>
+</kw>
+<arg>${ele}</arg>
+<status status="PASS" start="2024-03-04T12:21:11.057409" elapsed="0.110191"/>
+</kw>
+<kw name="Input Text" owner="AppiumLibrary">
+<msg time="2024-03-04T12:21:11.182828" level="INFO">Typing text 'apd.browse@gmail.com' into text field '//*[@resource-id='com.fivemobile.thescore:id/email_input_edittext']'</msg>
+<msg time="2024-03-04T12:21:11.358058" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/email_input_edittext']</msg>
+<arg>${ele}</arg>
+<arg>${val}</arg>
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<status status="PASS" start="2024-03-04T12:21:11.167600" elapsed="0.190458"/>
+</kw>
+<arg>${emailTextboxLoginPage}</arg>
+<arg>${email}</arg>
+<status status="PASS" start="2024-03-04T12:21:11.057409" elapsed="0.300649"/>
+</kw>
+<arg>${emailid}</arg>
+<status status="PASS" start="2024-03-04T12:21:11.057409" elapsed="0.300649"/>
+</kw>
+<kw name="Enter Password in Email Textbox in Log In Page" owner="LoginPage">
+<kw name="Enter Text" owner="General">
+<kw name="Verify Element Visibility" owner="General">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:21:11.993606" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/password_input_edittext']</msg>
+<arg>${ele}</arg>
+<arg>timeout=${pageloadtimeout}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:21:11.373113" elapsed="0.620493"/>
+</kw>
+<arg>${ele}</arg>
+<status status="PASS" start="2024-03-04T12:21:11.373113" elapsed="0.620493"/>
+</kw>
+<kw name="Input Text" owner="AppiumLibrary">
+<msg time="2024-03-04T12:21:11.993606" level="INFO">Typing text 'arun1234' into text field '//*[@resource-id='com.fivemobile.thescore:id/password_input_edittext']'</msg>
+<msg time="2024-03-04T12:21:12.152123" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/password_input_edittext']</msg>
+<arg>${ele}</arg>
+<arg>${val}</arg>
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<status status="PASS" start="2024-03-04T12:21:11.993606" elapsed="0.158517"/>
+</kw>
+<arg>${passwordTextboxLoginPage}</arg>
+<arg>${pwd}</arg>
+<status status="PASS" start="2024-03-04T12:21:11.358058" elapsed="0.794065"/>
+</kw>
+<arg>${password}</arg>
+<status status="PASS" start="2024-03-04T12:21:11.358058" elapsed="0.794065"/>
+</kw>
+<kw name="Click Log In Button in Log In Page" owner="LoginPage">
+<kw name="Click" owner="General">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:21:13.152349" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/login_button']</msg>
+<arg>${ele}</arg>
+<arg>timeout=${pageloadtimeout}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:21:12.152123" elapsed="1.000226"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:21:13.152349" level="INFO">Clicking element '//*[@resource-id='com.fivemobile.thescore:id/login_button']'.</msg>
+<msg time="2024-03-04T12:21:13.278152" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/login_button']</msg>
+<arg>${ele}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2024-03-04T12:21:13.152349" elapsed="0.125803"/>
+</kw>
+<arg>${loginButtonLoginPage}</arg>
+<status status="PASS" start="2024-03-04T12:21:12.152123" elapsed="1.126029"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:21:12.152123" elapsed="1.126029"/>
+</kw>
+<kw name="Verify Allow theScore to send you notifications? Snackbar is Displayed" owner="AllowNotificationsSnackbar">
+<kw name="Verify Element Visibility" owner="General">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:21:16.122098" level="INFO">xpath criteria: //*[@resource-id='com.android.permissioncontroller:id/permission_message']
+xpath criteria: //*[@resource-id='com.android.permissioncontroller:id/permission_message']
+xpath criteria: //*[@resource-id='com.android.permissioncontroller:id/permission_message']
+xpath criteria: //*[@resource-id='com.android.permissioncontroller:id/permission_message']
+xpath criteria: //*[@resource-id='com.android.permissioncontroller:id/permission_message']</msg>
+<arg>${ele}</arg>
+<arg>timeout=${pageloadtimeout}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:21:13.278152" elapsed="2.843946"/>
+</kw>
+<arg>${allowNotificationText}</arg>
+<status status="PASS" start="2024-03-04T12:21:13.278152" elapsed="2.843946"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:21:13.278152" elapsed="2.843946"/>
+</kw>
+<kw name="Click Allow Button" owner="AllowNotificationsSnackbar">
+<kw name="Click" owner="General">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:21:16.216056" level="INFO">xpath criteria: //*[@resource-id='com.android.permissioncontroller:id/permission_allow_button']</msg>
+<arg>${ele}</arg>
+<arg>timeout=${pageloadtimeout}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:21:16.122098" elapsed="0.093958"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:21:16.216056" level="INFO">Clicking element '//*[@resource-id='com.android.permissioncontroller:id/permission_allow_button']'.</msg>
+<msg time="2024-03-04T12:21:16.399127" level="INFO">xpath criteria: //*[@resource-id='com.android.permissioncontroller:id/permission_allow_button']</msg>
+<arg>${ele}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2024-03-04T12:21:16.216056" elapsed="0.183071"/>
+</kw>
+<arg>${allowButton}</arg>
+<status status="PASS" start="2024-03-04T12:21:16.122098" elapsed="0.277029"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:21:16.122098" elapsed="0.277029"/>
+</kw>
+<kw name="Verify Tailored Content Popup is Displayed" owner="TailoredContentPopup">
+<kw name="Verify Element Visibility" owner="General">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:21:17.708744" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/location_title']
+xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/location_title']</msg>
+<arg>${ele}</arg>
+<arg>timeout=${pageloadtimeout}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:21:16.400293" elapsed="1.308451"/>
+</kw>
+<arg>${tailedContentTitle}</arg>
+<status status="PASS" start="2024-03-04T12:21:16.400293" elapsed="1.308451"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:21:16.400293" elapsed="1.308451"/>
+</kw>
+<kw name="Click Allow Location Button in Tailored Content Popup" owner="TailoredContentPopup">
+<kw name="Click" owner="General">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:21:17.785893" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/btn_allow']</msg>
+<arg>${ele}</arg>
+<arg>timeout=${pageloadtimeout}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:21:17.708744" elapsed="0.077149"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:21:17.787396" level="INFO">Clicking element '//*[@resource-id='com.fivemobile.thescore:id/btn_allow']'.</msg>
+<msg time="2024-03-04T12:21:17.912816" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/btn_allow']</msg>
+<arg>${ele}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2024-03-04T12:21:17.785893" elapsed="0.126923"/>
+</kw>
+<arg>${allowLocationButton}</arg>
+<status status="PASS" start="2024-03-04T12:21:17.708744" elapsed="0.204072"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:21:17.708744" elapsed="0.204072"/>
+</kw>
+<kw name="Verify Allow theScore to Access this Device's Location? Snackbar is Displayed" owner="AllowAccessToDeviceLocationSnackbar">
+<kw name="Wait Until Page Contains" owner="AppiumLibrary">
+<arg>Allow theScore to access this device’s location?</arg>
+<doc>Waits until `text` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:21:17.912816" elapsed="1.070734"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:21:17.912816" elapsed="1.070734"/>
+</kw>
+<kw name="Click While Using the App Button in Allow theScore to Access this Device's Location? Snackbar" owner="AllowAccessToDeviceLocationSnackbar">
+<kw name="Click" owner="General">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:21:19.062709" level="INFO">xpath criteria: //*[@resource-id='com.android.permissioncontroller:id/permission_allow_foreground_only_button']</msg>
+<arg>${ele}</arg>
+<arg>timeout=${pageloadtimeout}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:21:18.983550" elapsed="0.079159"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:21:19.078347" level="INFO">Clicking element '//*[@resource-id='com.android.permissioncontroller:id/permission_allow_foreground_only_button']'.</msg>
+<msg time="2024-03-04T12:21:19.236656" level="INFO">xpath criteria: //*[@resource-id='com.android.permissioncontroller:id/permission_allow_foreground_only_button']</msg>
+<arg>${ele}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2024-03-04T12:21:19.062709" elapsed="0.173947"/>
+</kw>
+<arg>${whileUsingTheAppButton}</arg>
+<status status="PASS" start="2024-03-04T12:21:18.983550" elapsed="0.253106"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:21:18.983550" elapsed="0.253106"/>
+</kw>
+<kw name="Verify The Score Bet App Download Now Popup &amp; Dismiss if Displayed" owner="DownloadTheScoreBetPopup">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:21:19.600163" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/sportsbook_logo']</msg>
+<arg>${theScoreBetImage}</arg>
+<arg>timeout=5</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:21:19.236656" elapsed="0.363507"/>
+</kw>
+<msg time="2024-03-04T12:21:19.600163" level="INFO">${status} = True</msg>
+<var>${status}</var>
+<arg>wait until page contains element</arg>
+<arg>${theScoreBetImage}</arg>
+<arg>timeout=5</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2024-03-04T12:21:19.236656" elapsed="0.363507"/>
+</kw>
+<if>
+<branch type="IF" condition="${status}">
+<kw name="Click" owner="General">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:21:19.950014" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/dismiss_modal']</msg>
+<arg>${ele}</arg>
+<arg>timeout=${pageloadtimeout}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:21:19.600163" elapsed="0.349851"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:21:19.950014" level="INFO">Clicking element '//*[@resource-id='com.fivemobile.thescore:id/dismiss_modal']'.</msg>
+<msg time="2024-03-04T12:21:20.108517" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/dismiss_modal']</msg>
+<arg>${ele}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2024-03-04T12:21:19.950014" elapsed="0.158503"/>
+</kw>
+<arg>${dismissImage}</arg>
+<status status="PASS" start="2024-03-04T12:21:19.600163" elapsed="0.508354"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:21:19.600163" elapsed="0.508354"/>
+</branch>
+<branch type="ELSE">
+<kw name="Log" owner="BuiltIn">
+<arg>The Score Bet App Download Now Popup is Not Displayed</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2024-03-04T12:21:20.108517" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-03-04T12:21:20.108517" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2024-03-04T12:21:19.600163" elapsed="0.508354"/>
+</if>
+<status status="PASS" start="2024-03-04T12:21:19.236656" elapsed="0.871861"/>
+</kw>
+<kw name="Verify Scores Tab is Selected" owner="HomePage">
+<kw name="Verify Element is Selected" owner="General">
+<kw name="Verify Element Visibility" owner="General">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:21:20.422247" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/navigation_scores']</msg>
+<arg>${ele}</arg>
+<arg>timeout=${pageloadtimeout}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:21:20.108517" elapsed="0.313730"/>
+</kw>
+<arg>${ele}</arg>
+<status status="PASS" start="2024-03-04T12:21:20.108517" elapsed="0.313730"/>
+</kw>
+<kw name="Element Attribute Should Match" owner="AppiumLibrary">
+<msg time="2024-03-04T12:21:21.561871" level="INFO">Element '//*[@resource-id='com.fivemobile.thescore:id/navigation_scores']' attribute 'selected' is 'true' </msg>
+<msg time="2024-03-04T12:21:21.561871" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/navigation_scores']</msg>
+<arg>${ele}</arg>
+<arg>selected</arg>
+<arg>true</arg>
+<doc>Verify that an attribute of an element matches the expected criteria.</doc>
+<status status="PASS" start="2024-03-04T12:21:20.422247" elapsed="1.139624"/>
+</kw>
+<arg>${scoresTab}</arg>
+<status status="PASS" start="2024-03-04T12:21:20.108517" elapsed="1.453354"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:21:20.108517" elapsed="1.453354"/>
+</kw>
+<kw name="Verify Search Bar is Displayed in Home Page" owner="HomePage">
+<kw name="Verify Element Visibility" owner="General">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:21:21.861742" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/search_bar_text_view']</msg>
+<arg>${ele}</arg>
+<arg>timeout=${pageloadtimeout}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:21:21.561871" elapsed="0.299871"/>
+</kw>
+<arg>${searchBar}</arg>
+<status status="PASS" start="2024-03-04T12:21:21.561871" elapsed="0.299871"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:21:21.561871" elapsed="0.299871"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:20:50.449938" elapsed="31.411804"/>
+</kw>
+<kw name="Click Search Bar in Home Page" owner="HomePage">
+<kw name="Click" owner="General">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:21:22.685116" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/search_bar_text_view']</msg>
+<arg>${ele}</arg>
+<arg>timeout=${pageloadtimeout}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:21:21.861742" elapsed="0.823374"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:21:22.685116" level="INFO">Clicking element '//*[@resource-id='com.fivemobile.thescore:id/search_bar_text_view']'.</msg>
+<msg time="2024-03-04T12:21:23.190827" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/search_bar_text_view']</msg>
+<arg>${ele}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2024-03-04T12:21:22.685116" elapsed="0.505711"/>
+</kw>
+<arg>${searchBar}</arg>
+<status status="PASS" start="2024-03-04T12:21:21.861742" elapsed="1.329085"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:21:21.861742" elapsed="1.329085"/>
+</kw>
+<kw name="Verify Search Page is Displayed" owner="SearchPage">
+<kw name="Verify Search Bar is Displayed in Search Page" owner="SearchPage">
+<kw name="Verify Element Visibility" owner="General">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:21:23.333378" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/search_src_text']</msg>
+<arg>${ele}</arg>
+<arg>timeout=${pageloadtimeout}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:21:23.190827" elapsed="0.142551"/>
+</kw>
+<arg>${searchBarSearchPage}</arg>
+<status status="PASS" start="2024-03-04T12:21:23.190827" elapsed="0.142551"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:21:23.190827" elapsed="0.142551"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:21:23.190827" elapsed="0.142551"/>
+</kw>
+<kw name="Enter Text in Search Bar in Search Page" owner="SearchPage">
+<kw name="Enter Text" owner="General">
+<kw name="Verify Element Visibility" owner="General">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:21:24.552088" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/search_src_text']</msg>
+<arg>${ele}</arg>
+<arg>timeout=${pageloadtimeout}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:21:23.333378" elapsed="1.218710"/>
+</kw>
+<arg>${ele}</arg>
+<status status="PASS" start="2024-03-04T12:21:23.333378" elapsed="1.218710"/>
+</kw>
+<kw name="Input Text" owner="AppiumLibrary">
+<msg time="2024-03-04T12:21:24.567161" level="INFO">Typing text 'Toronto Raptors' into text field '//*[@resource-id='com.fivemobile.thescore:id/search_src_text']'</msg>
+<msg time="2024-03-04T12:21:25.501969" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/search_src_text']</msg>
+<arg>${ele}</arg>
+<arg>${val}</arg>
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<status status="PASS" start="2024-03-04T12:21:24.552088" elapsed="0.949881"/>
+</kw>
+<arg>${searchBarSearchPage}</arg>
+<arg>${txt}</arg>
+<status status="PASS" start="2024-03-04T12:21:23.333378" elapsed="2.168591"/>
+</kw>
+<arg>${team}</arg>
+<status status="PASS" start="2024-03-04T12:21:23.333378" elapsed="2.168591"/>
+</kw>
+<kw name="Click Search Result in Search Page" owner="SearchPage">
+<kw name="Click" owner="General">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:21:27.163608" level="INFO">xpath criteria: //*[@text="Toronto Raptors" and @resource-id='com.fivemobile.thescore:id/txt_name']</msg>
+<arg>${ele}</arg>
+<arg>timeout=${pageloadtimeout}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:21:25.501969" elapsed="1.661639"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:21:27.179681" level="INFO">Clicking element '//*[@text="Toronto Raptors" and @resource-id='com.fivemobile.thescore:id/txt_name']'.</msg>
+<msg time="2024-03-04T12:21:28.822134" level="INFO">xpath criteria: //*[@text="Toronto Raptors" and @resource-id='com.fivemobile.thescore:id/txt_name']</msg>
+<arg>${ele}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2024-03-04T12:21:27.163608" elapsed="1.658526"/>
+</kw>
+<arg>//*[@text="${txt}" and @resource-id='com.fivemobile.thescore:id/txt_name']</arg>
+<status status="PASS" start="2024-03-04T12:21:25.501969" elapsed="3.320165"/>
+</kw>
+<arg>${team}</arg>
+<status status="PASS" start="2024-03-04T12:21:25.501969" elapsed="3.320165"/>
+</kw>
+<kw name="Verify Team Page is Displayed" owner="TeamPage">
+<kw name="Verify Element Text" owner="General">
+<kw name="Element Text Should Be" owner="AppiumLibrary">
+<msg time="2024-03-04T12:21:28.822134" level="INFO">Verifying element '//*[@resource-id='com.fivemobile.thescore:id/team_name']' contains exactly text 'Toronto Raptors'.</msg>
+<msg time="2024-03-04T12:21:29.156125" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/team_name']</msg>
+<arg>${ele}</arg>
+<arg>${val}</arg>
+<doc>Verifies element identified by ``locator`` exactly contains text ``expected``.</doc>
+<status status="PASS" start="2024-03-04T12:21:28.822134" elapsed="0.333991"/>
+</kw>
+<arg>${teamNameTextTeamPage}</arg>
+<arg>${name}</arg>
+<status status="PASS" start="2024-03-04T12:21:28.822134" elapsed="0.333991"/>
+</kw>
+<arg>${team}</arg>
+<status status="PASS" start="2024-03-04T12:21:28.822134" elapsed="0.333991"/>
+</kw>
+<kw name="Verify Tab Selected in Team Page" owner="TeamPage">
+<kw name="Verify Element is Selected" owner="General">
+<kw name="Verify Element Visibility" owner="General">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:21:29.330367" level="INFO">xpath criteria: //*[@text='NEWS']</msg>
+<arg>${ele}</arg>
+<arg>timeout=${pageloadtimeout}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:21:29.156125" elapsed="0.174242"/>
+</kw>
+<arg>${ele}</arg>
+<status status="PASS" start="2024-03-04T12:21:29.156125" elapsed="0.174242"/>
+</kw>
+<kw name="Element Attribute Should Match" owner="AppiumLibrary">
+<msg time="2024-03-04T12:21:29.617059" level="INFO">Element '//*[@text='NEWS']' attribute 'selected' is 'true' </msg>
+<msg time="2024-03-04T12:21:29.617059" level="INFO">xpath criteria: //*[@text='NEWS']</msg>
+<arg>${ele}</arg>
+<arg>selected</arg>
+<arg>true</arg>
+<doc>Verify that an attribute of an element matches the expected criteria.</doc>
+<status status="PASS" start="2024-03-04T12:21:29.330367" elapsed="0.286692"/>
+</kw>
+<arg>//*[@text='${tab}']</arg>
+<status status="PASS" start="2024-03-04T12:21:29.156125" elapsed="0.460934"/>
+</kw>
+<arg>NEWS</arg>
+<status status="PASS" start="2024-03-04T12:21:29.156125" elapsed="0.460934"/>
+</kw>
+<kw name="Click Tab in Team Page" owner="TeamPage">
+<kw name="Click" owner="General">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:21:29.853015" level="INFO">xpath criteria: //*[@text='TEAM STATS']</msg>
+<arg>${ele}</arg>
+<arg>timeout=${pageloadtimeout}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:21:29.617059" elapsed="0.235956"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:21:29.853015" level="INFO">Clicking element '//*[@text='TEAM STATS']'.</msg>
+<msg time="2024-03-04T12:21:30.057440" level="INFO">xpath criteria: //*[@text='TEAM STATS']</msg>
+<arg>${ele}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2024-03-04T12:21:29.853015" elapsed="0.204425"/>
+</kw>
+<arg>//*[@text='${tab}']</arg>
+<status status="PASS" start="2024-03-04T12:21:29.617059" elapsed="0.440381"/>
+</kw>
+<arg>TEAM STATS</arg>
+<status status="PASS" start="2024-03-04T12:21:29.617059" elapsed="0.440381"/>
+</kw>
+<kw name="Verify Tab Selected in Team Page" owner="TeamPage">
+<kw name="Verify Element is Selected" owner="General">
+<kw name="Verify Element Visibility" owner="General">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:21:30.516749" level="INFO">xpath criteria: //*[@text='TEAM STATS']</msg>
+<arg>${ele}</arg>
+<arg>timeout=${pageloadtimeout}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:21:30.057440" elapsed="0.459309"/>
+</kw>
+<arg>${ele}</arg>
+<status status="PASS" start="2024-03-04T12:21:30.057440" elapsed="0.459309"/>
+</kw>
+<kw name="Element Attribute Should Match" owner="AppiumLibrary">
+<msg time="2024-03-04T12:21:32.431080" level="INFO">Element '//*[@text='TEAM STATS']' attribute 'selected' is 'true' </msg>
+<msg time="2024-03-04T12:21:32.431080" level="INFO">xpath criteria: //*[@text='TEAM STATS']</msg>
+<arg>${ele}</arg>
+<arg>selected</arg>
+<arg>true</arg>
+<doc>Verify that an attribute of an element matches the expected criteria.</doc>
+<status status="PASS" start="2024-03-04T12:21:30.516749" elapsed="1.914331"/>
+</kw>
+<arg>//*[@text='${tab}']</arg>
+<status status="PASS" start="2024-03-04T12:21:30.057440" elapsed="2.373640"/>
+</kw>
+<arg>TEAM STATS</arg>
+<status status="PASS" start="2024-03-04T12:21:30.057440" elapsed="2.373640"/>
+</kw>
+<kw name="Click Navigate Back Image in Team Page" owner="TeamPage">
+<kw name="Click" owner="General">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:21:32.666051" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/toolbar']/*[@class='android.widget.ImageButton']</msg>
+<arg>${ele}</arg>
+<arg>timeout=${pageloadtimeout}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:21:32.431080" elapsed="0.234971"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:21:32.666051" level="INFO">Clicking element '//*[@resource-id='com.fivemobile.thescore:id/toolbar']/*[@class='android.widget.ImageButton']'.</msg>
+<msg time="2024-03-04T12:21:32.920083" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/toolbar']/*[@class='android.widget.ImageButton']</msg>
+<arg>${ele}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2024-03-04T12:21:32.666051" elapsed="0.254032"/>
+</kw>
+<arg>${navigateBackImageTeamPage}</arg>
+<status status="PASS" start="2024-03-04T12:21:32.431080" elapsed="0.489003"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:21:32.431080" elapsed="0.489003"/>
+</kw>
+<kw name="Verify Search Page is Displayed" owner="SearchPage">
+<kw name="Verify Search Bar is Displayed in Search Page" owner="SearchPage">
+<kw name="Verify Element Visibility" owner="General">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:21:33.898489" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/search_src_text']</msg>
+<arg>${ele}</arg>
+<arg>timeout=${pageloadtimeout}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:21:32.920083" elapsed="0.978406"/>
+</kw>
+<arg>${searchBarSearchPage}</arg>
+<status status="PASS" start="2024-03-04T12:21:32.920083" elapsed="0.978406"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:21:32.920083" elapsed="0.978406"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:21:32.920083" elapsed="0.978406"/>
+</kw>
+<kw name="Verify Tab Selected in Search Page" owner="SearchPage">
+<kw name="Verify Element is Selected" owner="General">
+<kw name="Verify Element Visibility" owner="General">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:21:34.216382" level="INFO">xpath criteria: //*[@text='ALL']</msg>
+<arg>${ele}</arg>
+<arg>timeout=${pageloadtimeout}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:21:33.898489" elapsed="0.317893"/>
+</kw>
+<arg>${ele}</arg>
+<status status="PASS" start="2024-03-04T12:21:33.898489" elapsed="0.317893"/>
+</kw>
+<kw name="Element Attribute Should Match" owner="AppiumLibrary">
+<msg time="2024-03-04T12:21:34.499550" level="INFO">Element '//*[@text='ALL']' attribute 'selected' is 'true' </msg>
+<msg time="2024-03-04T12:21:34.499550" level="INFO">xpath criteria: //*[@text='ALL']</msg>
+<arg>${ele}</arg>
+<arg>selected</arg>
+<arg>true</arg>
+<doc>Verify that an attribute of an element matches the expected criteria.</doc>
+<status status="PASS" start="2024-03-04T12:21:34.216382" elapsed="0.283168"/>
+</kw>
+<arg>//*[@text='${tab}']</arg>
+<status status="PASS" start="2024-03-04T12:21:33.898489" elapsed="0.601061"/>
+</kw>
+<arg>ALL</arg>
+<status status="PASS" start="2024-03-04T12:21:33.898489" elapsed="0.601061"/>
+</kw>
+<kw name="Close TheScore App" owner="TheScoreKeywords">
+<kw name="Execute Command" owner="utility">
+<msg time="2024-03-04T12:21:34.970474" level="INFO">Execute Command - adb -s R5CTA2C3P3V shell am force-stop com.fivemobile.thescore</msg>
+<arg>adb -s ${deviceName} shell am force-stop ${appPackage}</arg>
+<status status="PASS" start="2024-03-04T12:21:34.499550" elapsed="0.470924"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:21:34.499550" elapsed="0.470924"/>
+</kw>
+<arg>team=Toronto Raptors</arg>
+<status status="PASS" start="2024-03-04T12:20:50.449938" elapsed="44.520536"/>
+</kw>
+<kw name="Stop Appium Server" owner="General" type="TEARDOWN">
+<kw name="Is Platform Windows" owner="utility">
+<msg time="2024-03-04T12:21:34.970474" level="INFO">${os} = windows</msg>
+<var>${os}</var>
+<status status="PASS" start="2024-03-04T12:21:34.970474" elapsed="0.000000"/>
+</kw>
+<if>
+<branch type="IF" condition="'${os}' == 'windows'">
+<kw name="Execute Command" owner="utility">
+<msg time="2024-03-04T12:21:35.457060" level="INFO">Execute Command - taskkill /F /IM node.exe /T</msg>
+<arg>taskkill /F /IM node.exe /T</arg>
+<status status="PASS" start="2024-03-04T12:21:34.970474" elapsed="0.486586"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:21:34.970474" elapsed="0.486586"/>
+</branch>
+<status status="PASS" start="2024-03-04T12:21:34.970474" elapsed="0.486586"/>
+</if>
+<status status="PASS" start="2024-03-04T12:21:34.970474" elapsed="0.486586"/>
+</kw>
+<tag>data_driven_tests</tag>
+<status status="PASS" start="2024-03-04T12:20:49.398012" elapsed="46.059048"/>
+</test>
+<test id="s1-t2" name="Search Team functionality Test" line="20">
+<kw name="Start Appium Server" owner="General" type="SETUP">
+<kw name="Is Platform Windows" owner="utility">
+<msg time="2024-03-04T12:21:35.457060" level="INFO">${os} = windows</msg>
+<var>${os}</var>
+<status status="PASS" start="2024-03-04T12:21:35.457060" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${os}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-03-04T12:21:35.457060" elapsed="0.000000"/>
+</kw>
+<if>
+<branch type="IF" condition="'${os}' == 'windows'">
+<kw name="Stop Appium Server" owner="General">
+<kw name="Is Platform Windows" owner="utility">
+<msg time="2024-03-04T12:21:35.457060" level="INFO">${os} = windows</msg>
+<var>${os}</var>
+<status status="PASS" start="2024-03-04T12:21:35.457060" elapsed="0.000000"/>
+</kw>
+<if>
+<branch type="IF" condition="'${os}' == 'windows'">
+<kw name="Execute Command" owner="utility">
+<msg time="2024-03-04T12:21:35.958916" level="INFO">Execute Command - taskkill /F /IM node.exe /T</msg>
+<arg>taskkill /F /IM node.exe /T</arg>
+<status status="PASS" start="2024-03-04T12:21:35.457060" elapsed="0.501856"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:21:35.457060" elapsed="0.501856"/>
+</branch>
+<status status="PASS" start="2024-03-04T12:21:35.457060" elapsed="0.501856"/>
+</if>
+<status status="PASS" start="2024-03-04T12:21:35.457060" elapsed="0.501856"/>
+</kw>
+<kw name="Execute Command" owner="utility">
+<msg time="2024-03-04T12:21:36.241793" level="INFO">Execute Command - start cmd /C appium --base-path /wd/hub --relaxed-security --log-timestamp</msg>
+<arg>start cmd /C appium --base-path /wd/hub --relaxed-security --log-timestamp</arg>
+<status status="PASS" start="2024-03-04T12:21:35.958916" elapsed="0.282877"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:21:35.457060" elapsed="0.784733"/>
+</branch>
+<status status="PASS" start="2024-03-04T12:21:35.457060" elapsed="0.784733"/>
+</if>
+<status status="PASS" start="2024-03-04T12:21:35.457060" elapsed="0.784733"/>
+</kw>
+<kw name="Search Team">
+<kw name="Login to TheScore App" owner="TheScoreKeywords">
+<kw name="Open TheScore App" owner="TheScoreKeywords">
+<kw name="Open Application" owner="AppiumLibrary">
+<arg>${remoteURL}</arg>
+<arg>platformName=${platformName}</arg>
+<arg>deviceName=${deviceName}</arg>
+<arg>appPackage=${appPackage}</arg>
+<arg>appActivity=${appActivity}</arg>
+<doc>Opens a new application to given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/server-args.md
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | no     | alias             |
+| strict_ssl          | No     | allows you to send commands to an invalid certificate host like a self-signed one. |</doc>
+<status status="PASS" start="2024-03-04T12:21:36.241793" elapsed="15.036133"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:21:36.241793" elapsed="15.036133"/>
+</kw>
+<kw name="Verify Welcome Page is Displayed" owner="WelcomePage">
+<kw name="Verify Welcome Icon is Displayed in Welcome Page" owner="WelcomePage">
+<kw name="Verify Element Visibility" owner="General">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:21:53.345449" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/icon_welcome']</msg>
+<arg>${ele}</arg>
+<arg>timeout=${pageloadtimeout}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:21:51.277926" elapsed="2.067523"/>
+</kw>
+<arg>${welcomeIconWelcomePage}</arg>
+<status status="PASS" start="2024-03-04T12:21:51.277926" elapsed="2.067523"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:21:51.277926" elapsed="2.067523"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:21:51.277926" elapsed="2.067523"/>
+</kw>
+<kw name="Click HAVE AN ACCOUNT? LOG IN text in Welcome Page" owner="WelcomePage">
+<kw name="Get Element Rect" owner="AppiumLibrary">
+<msg time="2024-03-04T12:21:53.534414" level="INFO">Element '//*[@resource-id='com.fivemobile.thescore:id/txt_sign_in']' rect: {'height': 57, 'width': 541, 'x': 270, 'y': 1688} </msg>
+<msg time="2024-03-04T12:21:53.534414" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/txt_sign_in']</msg>
+<msg time="2024-03-04T12:21:53.534414" level="INFO">${ele_loc} = {'height': 57, 'width': 541, 'x': 270, 'y': 1688}</msg>
+<var>${ele_loc}</var>
+<arg>${haveAnAccountLogInTextWelcomePage}</arg>
+<doc>Gets dimensions and coordinates of an element</doc>
+<status status="PASS" start="2024-03-04T12:21:53.345449" elapsed="0.188965"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-03-04T12:21:53.534414" level="INFO">{'height': 57, 'width': 541, 'x': 270, 'y': 1688}</msg>
+<arg>${ele_loc}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-03-04T12:21:53.534414" elapsed="0.000000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-03-04T12:21:53.534414" level="INFO">${x} = 796</msg>
+<var>${x}</var>
+<arg>${ele_loc}[x] + ${ele_loc}[width]-15</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-03-04T12:21:53.534414" elapsed="0.000000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-03-04T12:21:53.534414" level="INFO">${y} = 1740</msg>
+<var>${y}</var>
+<arg>${ele_loc}[y] + ${ele_loc}[height]-5</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-03-04T12:21:53.534414" elapsed="0.000000"/>
+</kw>
+<kw name="Log Many" owner="BuiltIn">
+<msg time="2024-03-04T12:21:53.534414" level="INFO">796</msg>
+<msg time="2024-03-04T12:21:53.534414" level="INFO">1740</msg>
+<arg>${x}</arg>
+<arg>${y}</arg>
+<doc>Logs the given messages as separate entries using the INFO level.</doc>
+<status status="PASS" start="2024-03-04T12:21:53.534414" elapsed="0.000000"/>
+</kw>
+<kw name="Click Element At Coordinates" owner="AppiumLibrary">
+<msg time="2024-03-04T12:21:53.534414" level="WARN">Keyword 'AppiumLibrary.Click Element At Coordinates' is deprecated. Since selenium v4, use other keywords.</msg>
+<msg time="2024-03-04T12:21:53.534414" level="INFO">Pressing at (796, 1740).</msg>
+<arg>${x}</arg>
+<arg>${y}</arg>
+<doc>*DEPRECATED!!* Since selenium v4, use other keywords.</doc>
+<status status="PASS" start="2024-03-04T12:21:53.534414" elapsed="1.235385"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:21:53.345449" elapsed="1.424350"/>
+</kw>
+<kw name="Verify Log In Page is Displayed" owner="LoginPage">
+<kw name="Element Should Contain Text" owner="AppiumLibrary">
+<msg time="2024-03-04T12:21:54.769799" level="INFO">Verifying element '//*[@resource-id='com.fivemobile.thescore:id/titleTextView']' contains text 'Log In'.</msg>
+<msg time="2024-03-04T12:21:55.007113" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/titleTextView']</msg>
+<arg>${loginTextLoginPage}</arg>
+<arg>Log In</arg>
+<doc>Verifies element identified by ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2024-03-04T12:21:54.769799" elapsed="0.237314"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:21:54.769799" elapsed="0.237314"/>
+</kw>
+<kw name="Enter Email Id in Email Textbox in Log In Page" owner="LoginPage">
+<kw name="Enter Text" owner="General">
+<kw name="Verify Element Visibility" owner="General">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:21:55.166680" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/email_input_edittext']</msg>
+<arg>${ele}</arg>
+<arg>timeout=${pageloadtimeout}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:21:55.007113" elapsed="0.159567"/>
+</kw>
+<arg>${ele}</arg>
+<status status="PASS" start="2024-03-04T12:21:55.007113" elapsed="0.159567"/>
+</kw>
+<kw name="Input Text" owner="AppiumLibrary">
+<msg time="2024-03-04T12:21:55.166680" level="INFO">Typing text 'apd.browse@gmail.com' into text field '//*[@resource-id='com.fivemobile.thescore:id/email_input_edittext']'</msg>
+<msg time="2024-03-04T12:21:55.355982" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/email_input_edittext']</msg>
+<arg>${ele}</arg>
+<arg>${val}</arg>
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<status status="PASS" start="2024-03-04T12:21:55.166680" elapsed="0.189302"/>
+</kw>
+<arg>${emailTextboxLoginPage}</arg>
+<arg>${email}</arg>
+<status status="PASS" start="2024-03-04T12:21:55.007113" elapsed="0.348869"/>
+</kw>
+<arg>${emailid}</arg>
+<status status="PASS" start="2024-03-04T12:21:55.007113" elapsed="0.348869"/>
+</kw>
+<kw name="Enter Password in Email Textbox in Log In Page" owner="LoginPage">
+<kw name="Enter Text" owner="General">
+<kw name="Verify Element Visibility" owner="General">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:21:55.957058" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/password_input_edittext']</msg>
+<arg>${ele}</arg>
+<arg>timeout=${pageloadtimeout}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:21:55.355982" elapsed="0.601076"/>
+</kw>
+<arg>${ele}</arg>
+<status status="PASS" start="2024-03-04T12:21:55.355982" elapsed="0.601076"/>
+</kw>
+<kw name="Input Text" owner="AppiumLibrary">
+<msg time="2024-03-04T12:21:55.957058" level="INFO">Typing text 'arun1234' into text field '//*[@resource-id='com.fivemobile.thescore:id/password_input_edittext']'</msg>
+<msg time="2024-03-04T12:21:56.116207" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/password_input_edittext']</msg>
+<arg>${ele}</arg>
+<arg>${val}</arg>
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<status status="PASS" start="2024-03-04T12:21:55.957058" elapsed="0.159149"/>
+</kw>
+<arg>${passwordTextboxLoginPage}</arg>
+<arg>${pwd}</arg>
+<status status="PASS" start="2024-03-04T12:21:55.355982" elapsed="0.760225"/>
+</kw>
+<arg>${password}</arg>
+<status status="PASS" start="2024-03-04T12:21:55.355982" elapsed="0.760225"/>
+</kw>
+<kw name="Click Log In Button in Log In Page" owner="LoginPage">
+<kw name="Click" owner="General">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:21:57.208813" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/login_button']</msg>
+<arg>${ele}</arg>
+<arg>timeout=${pageloadtimeout}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:21:56.131413" elapsed="1.077400"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:21:57.208813" level="INFO">Clicking element '//*[@resource-id='com.fivemobile.thescore:id/login_button']'.</msg>
+<msg time="2024-03-04T12:21:57.494182" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/login_button']</msg>
+<arg>${ele}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2024-03-04T12:21:57.208813" elapsed="0.285369"/>
+</kw>
+<arg>${loginButtonLoginPage}</arg>
+<status status="PASS" start="2024-03-04T12:21:56.131413" elapsed="1.362769"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:21:56.116207" elapsed="1.377975"/>
+</kw>
+<kw name="Verify Allow theScore to send you notifications? Snackbar is Displayed" owner="AllowNotificationsSnackbar">
+<kw name="Verify Element Visibility" owner="General">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:22:01.063557" level="INFO">xpath criteria: //*[@resource-id='com.android.permissioncontroller:id/permission_message']
+xpath criteria: //*[@resource-id='com.android.permissioncontroller:id/permission_message']
+xpath criteria: //*[@resource-id='com.android.permissioncontroller:id/permission_message']
+xpath criteria: //*[@resource-id='com.android.permissioncontroller:id/permission_message']
+xpath criteria: //*[@resource-id='com.android.permissioncontroller:id/permission_message']</msg>
+<arg>${ele}</arg>
+<arg>timeout=${pageloadtimeout}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:21:57.494182" elapsed="3.569375"/>
+</kw>
+<arg>${allowNotificationText}</arg>
+<status status="PASS" start="2024-03-04T12:21:57.494182" elapsed="3.569375"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:21:57.494182" elapsed="3.569375"/>
+</kw>
+<kw name="Click Allow Button" owner="AllowNotificationsSnackbar">
+<kw name="Click" owner="General">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:22:01.158161" level="INFO">xpath criteria: //*[@resource-id='com.android.permissioncontroller:id/permission_allow_button']</msg>
+<arg>${ele}</arg>
+<arg>timeout=${pageloadtimeout}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:22:01.063557" elapsed="0.094604"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:22:01.158161" level="INFO">Clicking element '//*[@resource-id='com.android.permissioncontroller:id/permission_allow_button']'.</msg>
+<msg time="2024-03-04T12:22:02.056151" level="INFO">xpath criteria: //*[@resource-id='com.android.permissioncontroller:id/permission_allow_button']</msg>
+<arg>${ele}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2024-03-04T12:22:01.158161" elapsed="0.897990"/>
+</kw>
+<arg>${allowButton}</arg>
+<status status="PASS" start="2024-03-04T12:22:01.063557" elapsed="0.992594"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:22:01.063557" elapsed="0.992594"/>
+</kw>
+<kw name="Verify Tailored Content Popup is Displayed" owner="TailoredContentPopup">
+<kw name="Verify Element Visibility" owner="General">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:22:03.017201" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/location_title']
+xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/location_title']</msg>
+<arg>${ele}</arg>
+<arg>timeout=${pageloadtimeout}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:22:02.056151" elapsed="0.961050"/>
+</kw>
+<arg>${tailedContentTitle}</arg>
+<status status="PASS" start="2024-03-04T12:22:02.056151" elapsed="0.961050"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:22:02.056151" elapsed="0.961050"/>
+</kw>
+<kw name="Click Allow Location Button in Tailored Content Popup" owner="TailoredContentPopup">
+<kw name="Click" owner="General">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:22:03.095732" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/btn_allow']</msg>
+<arg>${ele}</arg>
+<arg>timeout=${pageloadtimeout}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:22:03.017201" elapsed="0.078531"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:22:03.095732" level="INFO">Clicking element '//*[@resource-id='com.fivemobile.thescore:id/btn_allow']'.</msg>
+<msg time="2024-03-04T12:22:03.206050" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/btn_allow']</msg>
+<arg>${ele}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2024-03-04T12:22:03.095732" elapsed="0.110318"/>
+</kw>
+<arg>${allowLocationButton}</arg>
+<status status="PASS" start="2024-03-04T12:22:03.017201" elapsed="0.188849"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:22:03.017201" elapsed="0.188849"/>
+</kw>
+<kw name="Verify Allow theScore to Access this Device's Location? Snackbar is Displayed" owner="AllowAccessToDeviceLocationSnackbar">
+<kw name="Wait Until Page Contains" owner="AppiumLibrary">
+<arg>Allow theScore to access this device’s location?</arg>
+<doc>Waits until `text` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:22:03.206050" elapsed="1.272699"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:22:03.206050" elapsed="1.272699"/>
+</kw>
+<kw name="Click While Using the App Button in Allow theScore to Access this Device's Location? Snackbar" owner="AllowAccessToDeviceLocationSnackbar">
+<kw name="Click" owner="General">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:22:04.597248" level="INFO">xpath criteria: //*[@resource-id='com.android.permissioncontroller:id/permission_allow_foreground_only_button']</msg>
+<arg>${ele}</arg>
+<arg>timeout=${pageloadtimeout}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:22:04.478749" elapsed="0.118499"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:22:04.597248" level="INFO">Clicking element '//*[@resource-id='com.android.permissioncontroller:id/permission_allow_foreground_only_button']'.</msg>
+<msg time="2024-03-04T12:22:04.734003" level="INFO">xpath criteria: //*[@resource-id='com.android.permissioncontroller:id/permission_allow_foreground_only_button']</msg>
+<arg>${ele}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2024-03-04T12:22:04.597248" elapsed="0.136755"/>
+</kw>
+<arg>${whileUsingTheAppButton}</arg>
+<status status="PASS" start="2024-03-04T12:22:04.478749" elapsed="0.255254"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:22:04.478749" elapsed="0.255254"/>
+</kw>
+<kw name="Verify The Score Bet App Download Now Popup &amp; Dismiss if Displayed" owner="DownloadTheScoreBetPopup">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:22:05.560644" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/sportsbook_logo']
+xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/sportsbook_logo']</msg>
+<arg>${theScoreBetImage}</arg>
+<arg>timeout=5</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:22:04.734003" elapsed="0.826641"/>
+</kw>
+<msg time="2024-03-04T12:22:05.560644" level="INFO">${status} = True</msg>
+<var>${status}</var>
+<arg>wait until page contains element</arg>
+<arg>${theScoreBetImage}</arg>
+<arg>timeout=5</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2024-03-04T12:22:04.734003" elapsed="0.826641"/>
+</kw>
+<if>
+<branch type="IF" condition="${status}">
+<kw name="Click" owner="General">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:22:05.620711" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/dismiss_modal']</msg>
+<arg>${ele}</arg>
+<arg>timeout=${pageloadtimeout}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:22:05.561651" elapsed="0.059060"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:22:05.635675" level="INFO">Clicking element '//*[@resource-id='com.fivemobile.thescore:id/dismiss_modal']'.</msg>
+<msg time="2024-03-04T12:22:05.763214" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/dismiss_modal']</msg>
+<arg>${ele}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2024-03-04T12:22:05.620711" elapsed="0.142503"/>
+</kw>
+<arg>${dismissImage}</arg>
+<status status="PASS" start="2024-03-04T12:22:05.561651" elapsed="0.201563"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:22:05.560644" elapsed="0.202570"/>
+</branch>
+<branch type="ELSE">
+<kw name="Log" owner="BuiltIn">
+<arg>The Score Bet App Download Now Popup is Not Displayed</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2024-03-04T12:22:05.763214" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-03-04T12:22:05.763214" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2024-03-04T12:22:05.560644" elapsed="0.202570"/>
+</if>
+<status status="PASS" start="2024-03-04T12:22:04.734003" elapsed="1.029211"/>
+</kw>
+<kw name="Verify Scores Tab is Selected" owner="HomePage">
+<kw name="Verify Element is Selected" owner="General">
+<kw name="Verify Element Visibility" owner="General">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:22:06.078607" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/navigation_scores']</msg>
+<arg>${ele}</arg>
+<arg>timeout=${pageloadtimeout}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:22:05.778820" elapsed="0.299787"/>
+</kw>
+<arg>${ele}</arg>
+<status status="PASS" start="2024-03-04T12:22:05.778820" elapsed="0.299787"/>
+</kw>
+<kw name="Element Attribute Should Match" owner="AppiumLibrary">
+<msg time="2024-03-04T12:22:07.048057" level="INFO">Element '//*[@resource-id='com.fivemobile.thescore:id/navigation_scores']' attribute 'selected' is 'true' </msg>
+<msg time="2024-03-04T12:22:07.048057" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/navigation_scores']</msg>
+<arg>${ele}</arg>
+<arg>selected</arg>
+<arg>true</arg>
+<doc>Verify that an attribute of an element matches the expected criteria.</doc>
+<status status="PASS" start="2024-03-04T12:22:06.078607" elapsed="0.969450"/>
+</kw>
+<arg>${scoresTab}</arg>
+<status status="PASS" start="2024-03-04T12:22:05.778820" elapsed="1.269237"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:22:05.763214" elapsed="1.284843"/>
+</kw>
+<kw name="Verify Search Bar is Displayed in Home Page" owner="HomePage">
+<kw name="Verify Element Visibility" owner="General">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:22:07.459586" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/search_bar_text_view']</msg>
+<arg>${ele}</arg>
+<arg>timeout=${pageloadtimeout}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:22:07.048057" elapsed="0.411529"/>
+</kw>
+<arg>${searchBar}</arg>
+<status status="PASS" start="2024-03-04T12:22:07.048057" elapsed="0.411529"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:22:07.048057" elapsed="0.411529"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:21:36.241793" elapsed="31.217793"/>
+</kw>
+<kw name="Click Search Bar in Home Page" owner="HomePage">
+<kw name="Click" owner="General">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:22:08.281229" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/search_bar_text_view']</msg>
+<arg>${ele}</arg>
+<arg>timeout=${pageloadtimeout}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:22:07.459586" elapsed="0.821643"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:22:08.297309" level="INFO">Clicking element '//*[@resource-id='com.fivemobile.thescore:id/search_bar_text_view']'.</msg>
+<msg time="2024-03-04T12:22:08.721296" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/search_bar_text_view']</msg>
+<arg>${ele}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2024-03-04T12:22:08.281229" elapsed="0.440067"/>
+</kw>
+<arg>${searchBar}</arg>
+<status status="PASS" start="2024-03-04T12:22:07.459586" elapsed="1.261710"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:22:07.459586" elapsed="1.261710"/>
+</kw>
+<kw name="Verify Search Page is Displayed" owner="SearchPage">
+<kw name="Verify Search Bar is Displayed in Search Page" owner="SearchPage">
+<kw name="Verify Element Visibility" owner="General">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:22:08.847287" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/search_src_text']</msg>
+<arg>${ele}</arg>
+<arg>timeout=${pageloadtimeout}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:22:08.736956" elapsed="0.110331"/>
+</kw>
+<arg>${searchBarSearchPage}</arg>
+<status status="PASS" start="2024-03-04T12:22:08.736956" elapsed="0.110331"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:22:08.736956" elapsed="0.125473"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:22:08.721296" elapsed="0.141133"/>
+</kw>
+<kw name="Enter Text in Search Bar in Search Page" owner="SearchPage">
+<kw name="Enter Text" owner="General">
+<kw name="Verify Element Visibility" owner="General">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:22:10.099253" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/search_src_text']</msg>
+<arg>${ele}</arg>
+<arg>timeout=${pageloadtimeout}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:22:08.862429" elapsed="1.236824"/>
+</kw>
+<arg>${ele}</arg>
+<status status="PASS" start="2024-03-04T12:22:08.862429" elapsed="1.236824"/>
+</kw>
+<kw name="Input Text" owner="AppiumLibrary">
+<msg time="2024-03-04T12:22:10.099253" level="INFO">Typing text 'Ottawa Senators' into text field '//*[@resource-id='com.fivemobile.thescore:id/search_src_text']'</msg>
+<msg time="2024-03-04T12:22:10.351338" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/search_src_text']</msg>
+<arg>${ele}</arg>
+<arg>${val}</arg>
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<status status="PASS" start="2024-03-04T12:22:10.099253" elapsed="0.252085"/>
+</kw>
+<arg>${searchBarSearchPage}</arg>
+<arg>${txt}</arg>
+<status status="PASS" start="2024-03-04T12:22:08.862429" elapsed="1.488909"/>
+</kw>
+<arg>${team}</arg>
+<status status="PASS" start="2024-03-04T12:22:08.862429" elapsed="1.488909"/>
+</kw>
+<kw name="Click Search Result in Search Page" owner="SearchPage">
+<kw name="Click" owner="General">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:22:11.988292" level="INFO">xpath criteria: //*[@text="Ottawa Senators" and @resource-id='com.fivemobile.thescore:id/txt_name']</msg>
+<arg>${ele}</arg>
+<arg>timeout=${pageloadtimeout}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:22:10.351338" elapsed="1.636954"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:22:12.003907" level="INFO">Clicking element '//*[@text="Ottawa Senators" and @resource-id='com.fivemobile.thescore:id/txt_name']'.</msg>
+<msg time="2024-03-04T12:22:13.747181" level="INFO">xpath criteria: //*[@text="Ottawa Senators" and @resource-id='com.fivemobile.thescore:id/txt_name']</msg>
+<arg>${ele}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2024-03-04T12:22:11.988292" elapsed="1.758889"/>
+</kw>
+<arg>//*[@text="${txt}" and @resource-id='com.fivemobile.thescore:id/txt_name']</arg>
+<status status="PASS" start="2024-03-04T12:22:10.351338" elapsed="3.395843"/>
+</kw>
+<arg>${team}</arg>
+<status status="PASS" start="2024-03-04T12:22:10.351338" elapsed="3.395843"/>
+</kw>
+<kw name="Verify Team Page is Displayed" owner="TeamPage">
+<kw name="Verify Element Text" owner="General">
+<kw name="Element Text Should Be" owner="AppiumLibrary">
+<msg time="2024-03-04T12:22:13.747181" level="INFO">Verifying element '//*[@resource-id='com.fivemobile.thescore:id/team_name']' contains exactly text 'Ottawa Senators'.</msg>
+<msg time="2024-03-04T12:22:14.061124" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/team_name']</msg>
+<arg>${ele}</arg>
+<arg>${val}</arg>
+<doc>Verifies element identified by ``locator`` exactly contains text ``expected``.</doc>
+<status status="PASS" start="2024-03-04T12:22:13.747181" elapsed="0.313943"/>
+</kw>
+<arg>${teamNameTextTeamPage}</arg>
+<arg>${name}</arg>
+<status status="PASS" start="2024-03-04T12:22:13.747181" elapsed="0.313943"/>
+</kw>
+<arg>${team}</arg>
+<status status="PASS" start="2024-03-04T12:22:13.747181" elapsed="0.313943"/>
+</kw>
+<kw name="Verify Tab Selected in Team Page" owner="TeamPage">
+<kw name="Verify Element is Selected" owner="General">
+<kw name="Verify Element Visibility" owner="General">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:22:14.312138" level="INFO">xpath criteria: //*[@text='NEWS']</msg>
+<arg>${ele}</arg>
+<arg>timeout=${pageloadtimeout}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:22:14.061124" elapsed="0.251014"/>
+</kw>
+<arg>${ele}</arg>
+<status status="PASS" start="2024-03-04T12:22:14.061124" elapsed="0.251014"/>
+</kw>
+<kw name="Element Attribute Should Match" owner="AppiumLibrary">
+<msg time="2024-03-04T12:22:14.629727" level="INFO">Element '//*[@text='NEWS']' attribute 'selected' is 'true' </msg>
+<msg time="2024-03-04T12:22:14.629727" level="INFO">xpath criteria: //*[@text='NEWS']</msg>
+<arg>${ele}</arg>
+<arg>selected</arg>
+<arg>true</arg>
+<doc>Verify that an attribute of an element matches the expected criteria.</doc>
+<status status="PASS" start="2024-03-04T12:22:14.312138" elapsed="0.317589"/>
+</kw>
+<arg>//*[@text='${tab}']</arg>
+<status status="PASS" start="2024-03-04T12:22:14.061124" elapsed="0.568603"/>
+</kw>
+<arg>NEWS</arg>
+<status status="PASS" start="2024-03-04T12:22:14.061124" elapsed="0.568603"/>
+</kw>
+<kw name="Click Tab in Team Page" owner="TeamPage">
+<kw name="Click" owner="General">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:22:14.978817" level="INFO">xpath criteria: //*[@text='TEAM STATS']</msg>
+<arg>${ele}</arg>
+<arg>timeout=${pageloadtimeout}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:22:14.629727" elapsed="0.349090"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:22:14.978817" level="INFO">Clicking element '//*[@text='TEAM STATS']'.</msg>
+<msg time="2024-03-04T12:22:15.440946" level="INFO">xpath criteria: //*[@text='TEAM STATS']</msg>
+<arg>${ele}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2024-03-04T12:22:14.978817" elapsed="0.462129"/>
+</kw>
+<arg>//*[@text='${tab}']</arg>
+<status status="PASS" start="2024-03-04T12:22:14.629727" elapsed="0.811219"/>
+</kw>
+<arg>TEAM STATS</arg>
+<status status="PASS" start="2024-03-04T12:22:14.629727" elapsed="0.811219"/>
+</kw>
+<kw name="Verify Tab Selected in Team Page" owner="TeamPage">
+<kw name="Verify Element is Selected" owner="General">
+<kw name="Verify Element Visibility" owner="General">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:22:15.868560" level="INFO">xpath criteria: //*[@text='TEAM STATS']</msg>
+<arg>${ele}</arg>
+<arg>timeout=${pageloadtimeout}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:22:15.456620" elapsed="0.411940"/>
+</kw>
+<arg>${ele}</arg>
+<status status="PASS" start="2024-03-04T12:22:15.440946" elapsed="0.427614"/>
+</kw>
+<kw name="Element Attribute Should Match" owner="AppiumLibrary">
+<msg time="2024-03-04T12:22:17.930826" level="INFO">Element '//*[@text='TEAM STATS']' attribute 'selected' is 'true' </msg>
+<msg time="2024-03-04T12:22:17.930826" level="INFO">xpath criteria: //*[@text='TEAM STATS']</msg>
+<arg>${ele}</arg>
+<arg>selected</arg>
+<arg>true</arg>
+<doc>Verify that an attribute of an element matches the expected criteria.</doc>
+<status status="PASS" start="2024-03-04T12:22:15.868560" elapsed="2.062266"/>
+</kw>
+<arg>//*[@text='${tab}']</arg>
+<status status="PASS" start="2024-03-04T12:22:15.440946" elapsed="2.489880"/>
+</kw>
+<arg>TEAM STATS</arg>
+<status status="PASS" start="2024-03-04T12:22:15.440946" elapsed="2.489880"/>
+</kw>
+<kw name="Click Navigate Back Image in Team Page" owner="TeamPage">
+<kw name="Click" owner="General">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:22:18.167722" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/toolbar']/*[@class='android.widget.ImageButton']</msg>
+<arg>${ele}</arg>
+<arg>timeout=${pageloadtimeout}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:22:17.930826" elapsed="0.236896"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:22:18.167722" level="INFO">Clicking element '//*[@resource-id='com.fivemobile.thescore:id/toolbar']/*[@class='android.widget.ImageButton']'.</msg>
+<msg time="2024-03-04T12:22:20.483873" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/toolbar']/*[@class='android.widget.ImageButton']</msg>
+<arg>${ele}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2024-03-04T12:22:18.167722" elapsed="2.316151"/>
+</kw>
+<arg>${navigateBackImageTeamPage}</arg>
+<status status="PASS" start="2024-03-04T12:22:17.930826" elapsed="2.553047"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:22:17.930826" elapsed="2.553047"/>
+</kw>
+<kw name="Verify Search Page is Displayed" owner="SearchPage">
+<kw name="Verify Search Bar is Displayed in Search Page" owner="SearchPage">
+<kw name="Verify Element Visibility" owner="General">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:22:20.911251" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/search_src_text']</msg>
+<arg>${ele}</arg>
+<arg>timeout=${pageloadtimeout}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:22:20.483873" elapsed="0.427378"/>
+</kw>
+<arg>${searchBarSearchPage}</arg>
+<status status="PASS" start="2024-03-04T12:22:20.483873" elapsed="0.427378"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:22:20.483873" elapsed="0.427378"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:22:20.483873" elapsed="0.427378"/>
+</kw>
+<kw name="Verify Tab Selected in Search Page" owner="SearchPage">
+<kw name="Verify Element is Selected" owner="General">
+<kw name="Verify Element Visibility" owner="General">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:22:21.272586" level="INFO">xpath criteria: //*[@text='ALL']</msg>
+<arg>${ele}</arg>
+<arg>timeout=${pageloadtimeout}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:22:20.911251" elapsed="0.361335"/>
+</kw>
+<arg>${ele}</arg>
+<status status="PASS" start="2024-03-04T12:22:20.911251" elapsed="0.361335"/>
+</kw>
+<kw name="Element Attribute Should Match" owner="AppiumLibrary">
+<msg time="2024-03-04T12:22:21.430493" level="INFO">Element '//*[@text='ALL']' attribute 'selected' is 'true' </msg>
+<msg time="2024-03-04T12:22:21.430493" level="INFO">xpath criteria: //*[@text='ALL']</msg>
+<arg>${ele}</arg>
+<arg>selected</arg>
+<arg>true</arg>
+<doc>Verify that an attribute of an element matches the expected criteria.</doc>
+<status status="PASS" start="2024-03-04T12:22:21.272586" elapsed="0.173421"/>
+</kw>
+<arg>//*[@text='${tab}']</arg>
+<status status="PASS" start="2024-03-04T12:22:20.911251" elapsed="0.534756"/>
+</kw>
+<arg>ALL</arg>
+<status status="PASS" start="2024-03-04T12:22:20.911251" elapsed="0.534756"/>
+</kw>
+<kw name="Close TheScore App" owner="TheScoreKeywords">
+<kw name="Execute Command" owner="utility">
+<msg time="2024-03-04T12:22:21.933430" level="INFO">Execute Command - adb -s R5CTA2C3P3V shell am force-stop com.fivemobile.thescore</msg>
+<arg>adb -s ${deviceName} shell am force-stop ${appPackage}</arg>
+<status status="PASS" start="2024-03-04T12:22:21.446007" elapsed="0.487423"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:22:21.446007" elapsed="0.487423"/>
+</kw>
+<arg>team=Ottawa Senators</arg>
+<status status="PASS" start="2024-03-04T12:21:36.241793" elapsed="45.691637"/>
+</kw>
+<kw name="Stop Appium Server" owner="General" type="TEARDOWN">
+<kw name="Is Platform Windows" owner="utility">
+<msg time="2024-03-04T12:22:21.933430" level="INFO">${os} = windows</msg>
+<var>${os}</var>
+<status status="PASS" start="2024-03-04T12:22:21.933430" elapsed="0.000000"/>
+</kw>
+<if>
+<branch type="IF" condition="'${os}' == 'windows'">
+<kw name="Execute Command" owner="utility">
+<msg time="2024-03-04T12:22:22.420453" level="INFO">Execute Command - taskkill /F /IM node.exe /T</msg>
+<arg>taskkill /F /IM node.exe /T</arg>
+<status status="PASS" start="2024-03-04T12:22:21.933430" elapsed="0.487023"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:22:21.933430" elapsed="0.487023"/>
+</branch>
+<status status="PASS" start="2024-03-04T12:22:21.933430" elapsed="0.487023"/>
+</if>
+<status status="PASS" start="2024-03-04T12:22:21.933430" elapsed="0.487023"/>
+</kw>
+<tag>data_driven_tests</tag>
+<status status="PASS" start="2024-03-04T12:21:35.457060" elapsed="46.963393"/>
+</test>
+<test id="s1-t3" name="Search Team functionality Test" line="20">
+<kw name="Start Appium Server" owner="General" type="SETUP">
+<kw name="Is Platform Windows" owner="utility">
+<msg time="2024-03-04T12:22:22.420453" level="INFO">${os} = windows</msg>
+<var>${os}</var>
+<status status="PASS" start="2024-03-04T12:22:22.420453" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${os}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-03-04T12:22:22.420453" elapsed="0.000000"/>
+</kw>
+<if>
+<branch type="IF" condition="'${os}' == 'windows'">
+<kw name="Stop Appium Server" owner="General">
+<kw name="Is Platform Windows" owner="utility">
+<msg time="2024-03-04T12:22:22.448092" level="INFO">${os} = windows</msg>
+<var>${os}</var>
+<status status="PASS" start="2024-03-04T12:22:22.448092" elapsed="0.000000"/>
+</kw>
+<if>
+<branch type="IF" condition="'${os}' == 'windows'">
+<kw name="Execute Command" owner="utility">
+<msg time="2024-03-04T12:22:22.892137" level="INFO">Execute Command - taskkill /F /IM node.exe /T</msg>
+<arg>taskkill /F /IM node.exe /T</arg>
+<status status="PASS" start="2024-03-04T12:22:22.448092" elapsed="0.444045"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:22:22.448092" elapsed="0.444045"/>
+</branch>
+<status status="PASS" start="2024-03-04T12:22:22.448092" elapsed="0.444045"/>
+</if>
+<status status="PASS" start="2024-03-04T12:22:22.448092" elapsed="0.444045"/>
+</kw>
+<kw name="Execute Command" owner="utility">
+<msg time="2024-03-04T12:22:23.174795" level="INFO">Execute Command - start cmd /C appium --base-path /wd/hub --relaxed-security --log-timestamp</msg>
+<arg>start cmd /C appium --base-path /wd/hub --relaxed-security --log-timestamp</arg>
+<status status="PASS" start="2024-03-04T12:22:22.892137" elapsed="0.282658"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:22:22.420453" elapsed="0.754342"/>
+</branch>
+<status status="PASS" start="2024-03-04T12:22:22.420453" elapsed="0.754342"/>
+</if>
+<status status="PASS" start="2024-03-04T12:22:22.420453" elapsed="0.754342"/>
+</kw>
+<kw name="Search Team">
+<kw name="Login to TheScore App" owner="TheScoreKeywords">
+<kw name="Open TheScore App" owner="TheScoreKeywords">
+<kw name="Open Application" owner="AppiumLibrary">
+<arg>${remoteURL}</arg>
+<arg>platformName=${platformName}</arg>
+<arg>deviceName=${deviceName}</arg>
+<arg>appPackage=${appPackage}</arg>
+<arg>appActivity=${appActivity}</arg>
+<doc>Opens a new application to given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/server-args.md
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | no     | alias             |
+| strict_ssl          | No     | allows you to send commands to an invalid certificate host like a self-signed one. |</doc>
+<status status="PASS" start="2024-03-04T12:22:23.174795" elapsed="15.125764"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:22:23.174795" elapsed="15.125764"/>
+</kw>
+<kw name="Verify Welcome Page is Displayed" owner="WelcomePage">
+<kw name="Verify Welcome Icon is Displayed in Welcome Page" owner="WelcomePage">
+<kw name="Verify Element Visibility" owner="General">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:22:40.517240" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/icon_welcome']</msg>
+<arg>${ele}</arg>
+<arg>timeout=${pageloadtimeout}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:22:38.302294" elapsed="2.214946"/>
+</kw>
+<arg>${welcomeIconWelcomePage}</arg>
+<status status="PASS" start="2024-03-04T12:22:38.302294" elapsed="2.214946"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:22:38.300559" elapsed="2.216681"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:22:38.300559" elapsed="2.216681"/>
+</kw>
+<kw name="Click HAVE AN ACCOUNT? LOG IN text in Welcome Page" owner="WelcomePage">
+<kw name="Get Element Rect" owner="AppiumLibrary">
+<msg time="2024-03-04T12:22:40.725065" level="INFO">Element '//*[@resource-id='com.fivemobile.thescore:id/txt_sign_in']' rect: {'height': 57, 'width': 541, 'x': 270, 'y': 1688} </msg>
+<msg time="2024-03-04T12:22:40.725065" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/txt_sign_in']</msg>
+<msg time="2024-03-04T12:22:40.725065" level="INFO">${ele_loc} = {'height': 57, 'width': 541, 'x': 270, 'y': 1688}</msg>
+<var>${ele_loc}</var>
+<arg>${haveAnAccountLogInTextWelcomePage}</arg>
+<doc>Gets dimensions and coordinates of an element</doc>
+<status status="PASS" start="2024-03-04T12:22:40.517240" elapsed="0.207825"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-03-04T12:22:40.725065" level="INFO">{'height': 57, 'width': 541, 'x': 270, 'y': 1688}</msg>
+<arg>${ele_loc}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-03-04T12:22:40.725065" elapsed="0.000000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-03-04T12:22:40.725065" level="INFO">${x} = 796</msg>
+<var>${x}</var>
+<arg>${ele_loc}[x] + ${ele_loc}[width]-15</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-03-04T12:22:40.725065" elapsed="0.000000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-03-04T12:22:40.725065" level="INFO">${y} = 1740</msg>
+<var>${y}</var>
+<arg>${ele_loc}[y] + ${ele_loc}[height]-5</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-03-04T12:22:40.725065" elapsed="0.000000"/>
+</kw>
+<kw name="Log Many" owner="BuiltIn">
+<msg time="2024-03-04T12:22:40.725065" level="INFO">796</msg>
+<msg time="2024-03-04T12:22:40.725065" level="INFO">1740</msg>
+<arg>${x}</arg>
+<arg>${y}</arg>
+<doc>Logs the given messages as separate entries using the INFO level.</doc>
+<status status="PASS" start="2024-03-04T12:22:40.725065" elapsed="0.000000"/>
+</kw>
+<kw name="Click Element At Coordinates" owner="AppiumLibrary">
+<msg time="2024-03-04T12:22:40.725065" level="WARN">Keyword 'AppiumLibrary.Click Element At Coordinates' is deprecated. Since selenium v4, use other keywords.</msg>
+<msg time="2024-03-04T12:22:40.725065" level="INFO">Pressing at (796, 1740).</msg>
+<arg>${x}</arg>
+<arg>${y}</arg>
+<doc>*DEPRECATED!!* Since selenium v4, use other keywords.</doc>
+<status status="PASS" start="2024-03-04T12:22:40.725065" elapsed="1.062481"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:22:40.517240" elapsed="1.270306"/>
+</kw>
+<kw name="Verify Log In Page is Displayed" owner="LoginPage">
+<kw name="Element Should Contain Text" owner="AppiumLibrary">
+<msg time="2024-03-04T12:22:41.787546" level="INFO">Verifying element '//*[@resource-id='com.fivemobile.thescore:id/titleTextView']' contains text 'Log In'.</msg>
+<msg time="2024-03-04T12:22:41.996370" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/titleTextView']</msg>
+<arg>${loginTextLoginPage}</arg>
+<arg>Log In</arg>
+<doc>Verifies element identified by ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2024-03-04T12:22:41.787546" elapsed="0.208824"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:22:41.787546" elapsed="0.208824"/>
+</kw>
+<kw name="Enter Email Id in Email Textbox in Log In Page" owner="LoginPage">
+<kw name="Enter Text" owner="General">
+<kw name="Verify Element Visibility" owner="General">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:22:42.182691" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/email_input_edittext']</msg>
+<arg>${ele}</arg>
+<arg>timeout=${pageloadtimeout}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:22:41.996370" elapsed="0.186321"/>
+</kw>
+<arg>${ele}</arg>
+<status status="PASS" start="2024-03-04T12:22:41.996370" elapsed="0.186321"/>
+</kw>
+<kw name="Input Text" owner="AppiumLibrary">
+<msg time="2024-03-04T12:22:42.182691" level="INFO">Typing text 'apd.browse@gmail.com' into text field '//*[@resource-id='com.fivemobile.thescore:id/email_input_edittext']'</msg>
+<msg time="2024-03-04T12:22:42.420599" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/email_input_edittext']</msg>
+<arg>${ele}</arg>
+<arg>${val}</arg>
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<status status="PASS" start="2024-03-04T12:22:42.182691" elapsed="0.237908"/>
+</kw>
+<arg>${emailTextboxLoginPage}</arg>
+<arg>${email}</arg>
+<status status="PASS" start="2024-03-04T12:22:41.996370" elapsed="0.424229"/>
+</kw>
+<arg>${emailid}</arg>
+<status status="PASS" start="2024-03-04T12:22:41.996370" elapsed="0.424229"/>
+</kw>
+<kw name="Enter Password in Email Textbox in Log In Page" owner="LoginPage">
+<kw name="Enter Text" owner="General">
+<kw name="Verify Element Visibility" owner="General">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:22:43.005130" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/password_input_edittext']</msg>
+<arg>${ele}</arg>
+<arg>timeout=${pageloadtimeout}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:22:42.420599" elapsed="0.584531"/>
+</kw>
+<arg>${ele}</arg>
+<status status="PASS" start="2024-03-04T12:22:42.420599" elapsed="0.584531"/>
+</kw>
+<kw name="Input Text" owner="AppiumLibrary">
+<msg time="2024-03-04T12:22:43.020801" level="INFO">Typing text 'arun1234' into text field '//*[@resource-id='com.fivemobile.thescore:id/password_input_edittext']'</msg>
+<msg time="2024-03-04T12:22:43.146801" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/password_input_edittext']</msg>
+<arg>${ele}</arg>
+<arg>${val}</arg>
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<status status="PASS" start="2024-03-04T12:22:43.020801" elapsed="0.126000"/>
+</kw>
+<arg>${passwordTextboxLoginPage}</arg>
+<arg>${pwd}</arg>
+<status status="PASS" start="2024-03-04T12:22:42.420599" elapsed="0.726202"/>
+</kw>
+<arg>${password}</arg>
+<status status="PASS" start="2024-03-04T12:22:42.420599" elapsed="0.726202"/>
+</kw>
+<kw name="Click Log In Button in Log In Page" owner="LoginPage">
+<kw name="Click" owner="General">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:22:44.223552" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/login_button']</msg>
+<arg>${ele}</arg>
+<arg>timeout=${pageloadtimeout}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:22:43.146801" elapsed="1.076751"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:22:44.223552" level="INFO">Clicking element '//*[@resource-id='com.fivemobile.thescore:id/login_button']'.</msg>
+<msg time="2024-03-04T12:22:44.493788" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/login_button']</msg>
+<arg>${ele}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2024-03-04T12:22:44.223552" elapsed="0.270236"/>
+</kw>
+<arg>${loginButtonLoginPage}</arg>
+<status status="PASS" start="2024-03-04T12:22:43.146801" elapsed="1.346987"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:22:43.146801" elapsed="1.346987"/>
+</kw>
+<kw name="Verify Allow theScore to send you notifications? Snackbar is Displayed" owner="AllowNotificationsSnackbar">
+<kw name="Verify Element Visibility" owner="General">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:22:47.146483" level="INFO">xpath criteria: //*[@resource-id='com.android.permissioncontroller:id/permission_message']
+xpath criteria: //*[@resource-id='com.android.permissioncontroller:id/permission_message']
+xpath criteria: //*[@resource-id='com.android.permissioncontroller:id/permission_message']
+xpath criteria: //*[@resource-id='com.android.permissioncontroller:id/permission_message']</msg>
+<arg>${ele}</arg>
+<arg>timeout=${pageloadtimeout}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:22:44.493788" elapsed="2.652695"/>
+</kw>
+<arg>${allowNotificationText}</arg>
+<status status="PASS" start="2024-03-04T12:22:44.493788" elapsed="2.652695"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:22:44.493788" elapsed="2.652695"/>
+</kw>
+<kw name="Click Allow Button" owner="AllowNotificationsSnackbar">
+<kw name="Click" owner="General">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:22:47.257733" level="INFO">xpath criteria: //*[@resource-id='com.android.permissioncontroller:id/permission_allow_button']</msg>
+<arg>${ele}</arg>
+<arg>timeout=${pageloadtimeout}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:22:47.146483" elapsed="0.111250"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:22:47.257733" level="INFO">Clicking element '//*[@resource-id='com.android.permissioncontroller:id/permission_allow_button']'.</msg>
+<msg time="2024-03-04T12:22:47.875552" level="INFO">xpath criteria: //*[@resource-id='com.android.permissioncontroller:id/permission_allow_button']</msg>
+<arg>${ele}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2024-03-04T12:22:47.257733" elapsed="0.617819"/>
+</kw>
+<arg>${allowButton}</arg>
+<status status="PASS" start="2024-03-04T12:22:47.146483" elapsed="0.729069"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:22:47.146483" elapsed="0.729069"/>
+</kw>
+<kw name="Verify Tailored Content Popup is Displayed" owner="TailoredContentPopup">
+<kw name="Verify Element Visibility" owner="General">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:22:48.838850" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/location_title']</msg>
+<arg>${ele}</arg>
+<arg>timeout=${pageloadtimeout}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:22:47.875552" elapsed="0.963298"/>
+</kw>
+<arg>${tailedContentTitle}</arg>
+<status status="PASS" start="2024-03-04T12:22:47.875552" elapsed="0.963298"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:22:47.875552" elapsed="0.963298"/>
+</kw>
+<kw name="Click Allow Location Button in Tailored Content Popup" owner="TailoredContentPopup">
+<kw name="Click" owner="General">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:22:48.965226" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/btn_allow']</msg>
+<arg>${ele}</arg>
+<arg>timeout=${pageloadtimeout}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:22:48.838850" elapsed="0.126376"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:22:48.980572" level="INFO">Clicking element '//*[@resource-id='com.fivemobile.thescore:id/btn_allow']'.</msg>
+<msg time="2024-03-04T12:22:49.156660" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/btn_allow']</msg>
+<arg>${ele}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2024-03-04T12:22:48.965226" elapsed="0.191434"/>
+</kw>
+<arg>${allowLocationButton}</arg>
+<status status="PASS" start="2024-03-04T12:22:48.838850" elapsed="0.317810"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:22:48.838850" elapsed="0.317810"/>
+</kw>
+<kw name="Verify Allow theScore to Access this Device's Location? Snackbar is Displayed" owner="AllowAccessToDeviceLocationSnackbar">
+<kw name="Wait Until Page Contains" owner="AppiumLibrary">
+<arg>Allow theScore to access this device’s location?</arg>
+<doc>Waits until `text` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:22:49.156660" elapsed="1.077691"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:22:49.156660" elapsed="1.077691"/>
+</kw>
+<kw name="Click While Using the App Button in Allow theScore to Access this Device's Location? Snackbar" owner="AllowAccessToDeviceLocationSnackbar">
+<kw name="Click" owner="General">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:22:50.328733" level="INFO">xpath criteria: //*[@resource-id='com.android.permissioncontroller:id/permission_allow_foreground_only_button']</msg>
+<arg>${ele}</arg>
+<arg>timeout=${pageloadtimeout}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:22:50.234351" elapsed="0.094382"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:22:50.328733" level="INFO">Clicking element '//*[@resource-id='com.android.permissioncontroller:id/permission_allow_foreground_only_button']'.</msg>
+<msg time="2024-03-04T12:22:50.486469" level="INFO">xpath criteria: //*[@resource-id='com.android.permissioncontroller:id/permission_allow_foreground_only_button']</msg>
+<arg>${ele}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2024-03-04T12:22:50.328733" elapsed="0.157736"/>
+</kw>
+<arg>${whileUsingTheAppButton}</arg>
+<status status="PASS" start="2024-03-04T12:22:50.234351" elapsed="0.252118"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:22:50.234351" elapsed="0.252118"/>
+</kw>
+<kw name="Verify The Score Bet App Download Now Popup &amp; Dismiss if Displayed" owner="DownloadTheScoreBetPopup">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:22:51.274450" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/sportsbook_logo']
+xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/sportsbook_logo']</msg>
+<arg>${theScoreBetImage}</arg>
+<arg>timeout=5</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:22:50.486469" elapsed="0.787981"/>
+</kw>
+<msg time="2024-03-04T12:22:51.274450" level="INFO">${status} = True</msg>
+<var>${status}</var>
+<arg>wait until page contains element</arg>
+<arg>${theScoreBetImage}</arg>
+<arg>timeout=5</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2024-03-04T12:22:50.486469" elapsed="0.787981"/>
+</kw>
+<if>
+<branch type="IF" condition="${status}">
+<kw name="Click" owner="General">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:22:51.355142" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/dismiss_modal']</msg>
+<arg>${ele}</arg>
+<arg>timeout=${pageloadtimeout}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:22:51.274450" elapsed="0.080692"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:22:51.355142" level="INFO">Clicking element '//*[@resource-id='com.fivemobile.thescore:id/dismiss_modal']'.</msg>
+<msg time="2024-03-04T12:22:51.481341" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/dismiss_modal']</msg>
+<arg>${ele}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2024-03-04T12:22:51.355142" elapsed="0.126199"/>
+</kw>
+<arg>${dismissImage}</arg>
+<status status="PASS" start="2024-03-04T12:22:51.274450" elapsed="0.206891"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:22:51.274450" elapsed="0.206891"/>
+</branch>
+<branch type="ELSE">
+<kw name="Log" owner="BuiltIn">
+<arg>The Score Bet App Download Now Popup is Not Displayed</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2024-03-04T12:22:51.481341" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-03-04T12:22:51.481341" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2024-03-04T12:22:51.274450" elapsed="0.206891"/>
+</if>
+<status status="PASS" start="2024-03-04T12:22:50.486469" elapsed="0.994872"/>
+</kw>
+<kw name="Verify Scores Tab is Selected" owner="HomePage">
+<kw name="Verify Element is Selected" owner="General">
+<kw name="Verify Element Visibility" owner="General">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:22:51.827848" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/navigation_scores']</msg>
+<arg>${ele}</arg>
+<arg>timeout=${pageloadtimeout}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:22:51.481341" elapsed="0.346507"/>
+</kw>
+<arg>${ele}</arg>
+<status status="PASS" start="2024-03-04T12:22:51.481341" elapsed="0.346507"/>
+</kw>
+<kw name="Element Attribute Should Match" owner="AppiumLibrary">
+<msg time="2024-03-04T12:22:52.732149" level="INFO">Element '//*[@resource-id='com.fivemobile.thescore:id/navigation_scores']' attribute 'selected' is 'true' </msg>
+<msg time="2024-03-04T12:22:52.732149" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/navigation_scores']</msg>
+<arg>${ele}</arg>
+<arg>selected</arg>
+<arg>true</arg>
+<doc>Verify that an attribute of an element matches the expected criteria.</doc>
+<status status="PASS" start="2024-03-04T12:22:51.827848" elapsed="0.904301"/>
+</kw>
+<arg>${scoresTab}</arg>
+<status status="PASS" start="2024-03-04T12:22:51.481341" elapsed="1.250808"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:22:51.481341" elapsed="1.250808"/>
+</kw>
+<kw name="Verify Search Bar is Displayed in Home Page" owner="HomePage">
+<kw name="Verify Element Visibility" owner="General">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:22:53.190584" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/search_bar_text_view']</msg>
+<arg>${ele}</arg>
+<arg>timeout=${pageloadtimeout}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:22:52.732149" elapsed="0.458435"/>
+</kw>
+<arg>${searchBar}</arg>
+<status status="PASS" start="2024-03-04T12:22:52.732149" elapsed="0.458435"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:22:52.732149" elapsed="0.458435"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:22:23.174795" elapsed="30.015789"/>
+</kw>
+<kw name="Click Search Bar in Home Page" owner="HomePage">
+<kw name="Click" owner="General">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:22:53.855947" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/search_bar_text_view']</msg>
+<arg>${ele}</arg>
+<arg>timeout=${pageloadtimeout}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:22:53.190584" elapsed="0.665363"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:22:53.855947" level="INFO">Clicking element '//*[@resource-id='com.fivemobile.thescore:id/search_bar_text_view']'.</msg>
+<msg time="2024-03-04T12:22:54.175249" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/search_bar_text_view']</msg>
+<arg>${ele}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2024-03-04T12:22:53.855947" elapsed="0.319302"/>
+</kw>
+<arg>${searchBar}</arg>
+<status status="PASS" start="2024-03-04T12:22:53.190584" elapsed="0.984665"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:22:53.190584" elapsed="0.984665"/>
+</kw>
+<kw name="Verify Search Page is Displayed" owner="SearchPage">
+<kw name="Verify Search Bar is Displayed in Search Page" owner="SearchPage">
+<kw name="Verify Element Visibility" owner="General">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:22:54.302307" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/search_src_text']</msg>
+<arg>${ele}</arg>
+<arg>timeout=${pageloadtimeout}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:22:54.175249" elapsed="0.127058"/>
+</kw>
+<arg>${searchBarSearchPage}</arg>
+<status status="PASS" start="2024-03-04T12:22:54.175249" elapsed="0.127058"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:22:54.175249" elapsed="0.127058"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:22:54.175249" elapsed="0.127058"/>
+</kw>
+<kw name="Enter Text in Search Bar in Search Page" owner="SearchPage">
+<kw name="Enter Text" owner="General">
+<kw name="Verify Element Visibility" owner="General">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:22:55.445628" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/search_src_text']</msg>
+<arg>${ele}</arg>
+<arg>timeout=${pageloadtimeout}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:22:54.302307" elapsed="1.143321"/>
+</kw>
+<arg>${ele}</arg>
+<status status="PASS" start="2024-03-04T12:22:54.302307" elapsed="1.143321"/>
+</kw>
+<kw name="Input Text" owner="AppiumLibrary">
+<msg time="2024-03-04T12:22:55.445628" level="INFO">Typing text 'Toronto Maple Leafs' into text field '//*[@resource-id='com.fivemobile.thescore:id/search_src_text']'</msg>
+<msg time="2024-03-04T12:22:56.296362" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/search_src_text']</msg>
+<arg>${ele}</arg>
+<arg>${val}</arg>
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<status status="PASS" start="2024-03-04T12:22:55.445628" elapsed="0.850734"/>
+</kw>
+<arg>${searchBarSearchPage}</arg>
+<arg>${txt}</arg>
+<status status="PASS" start="2024-03-04T12:22:54.302307" elapsed="1.994055"/>
+</kw>
+<arg>${team}</arg>
+<status status="PASS" start="2024-03-04T12:22:54.302307" elapsed="1.994055"/>
+</kw>
+<kw name="Click Search Result in Search Page" owner="SearchPage">
+<kw name="Click" owner="General">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:22:57.980438" level="INFO">xpath criteria: //*[@text="Toronto Maple Leafs" and @resource-id='com.fivemobile.thescore:id/txt_name']</msg>
+<arg>${ele}</arg>
+<arg>timeout=${pageloadtimeout}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:22:56.296362" elapsed="1.684076"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:22:57.980438" level="INFO">Clicking element '//*[@text="Toronto Maple Leafs" and @resource-id='com.fivemobile.thescore:id/txt_name']'.</msg>
+<msg time="2024-03-04T12:22:59.723010" level="INFO">xpath criteria: //*[@text="Toronto Maple Leafs" and @resource-id='com.fivemobile.thescore:id/txt_name']</msg>
+<arg>${ele}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2024-03-04T12:22:57.980438" elapsed="1.742572"/>
+</kw>
+<arg>//*[@text="${txt}" and @resource-id='com.fivemobile.thescore:id/txt_name']</arg>
+<status status="PASS" start="2024-03-04T12:22:56.296362" elapsed="3.426648"/>
+</kw>
+<arg>${team}</arg>
+<status status="PASS" start="2024-03-04T12:22:56.296362" elapsed="3.426648"/>
+</kw>
+<kw name="Verify Team Page is Displayed" owner="TeamPage">
+<kw name="Verify Element Text" owner="General">
+<kw name="Element Text Should Be" owner="AppiumLibrary">
+<msg time="2024-03-04T12:22:59.723010" level="INFO">Verifying element '//*[@resource-id='com.fivemobile.thescore:id/team_name']' contains exactly text 'Toronto Maple Leafs'.</msg>
+<msg time="2024-03-04T12:22:59.960297" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/team_name']</msg>
+<arg>${ele}</arg>
+<arg>${val}</arg>
+<doc>Verifies element identified by ``locator`` exactly contains text ``expected``.</doc>
+<status status="PASS" start="2024-03-04T12:22:59.723010" elapsed="0.237287"/>
+</kw>
+<arg>${teamNameTextTeamPage}</arg>
+<arg>${name}</arg>
+<status status="PASS" start="2024-03-04T12:22:59.723010" elapsed="0.237287"/>
+</kw>
+<arg>${team}</arg>
+<status status="PASS" start="2024-03-04T12:22:59.723010" elapsed="0.237287"/>
+</kw>
+<kw name="Verify Tab Selected in Team Page" owner="TeamPage">
+<kw name="Verify Element is Selected" owner="General">
+<kw name="Verify Element Visibility" owner="General">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:23:00.198621" level="INFO">xpath criteria: //*[@text='NEWS']</msg>
+<arg>${ele}</arg>
+<arg>timeout=${pageloadtimeout}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:22:59.960297" elapsed="0.238324"/>
+</kw>
+<arg>${ele}</arg>
+<status status="PASS" start="2024-03-04T12:22:59.960297" elapsed="0.238324"/>
+</kw>
+<kw name="Element Attribute Should Match" owner="AppiumLibrary">
+<msg time="2024-03-04T12:23:01.148142" level="INFO">Element '//*[@text='NEWS']' attribute 'selected' is 'true' </msg>
+<msg time="2024-03-04T12:23:01.148142" level="INFO">xpath criteria: //*[@text='NEWS']</msg>
+<arg>${ele}</arg>
+<arg>selected</arg>
+<arg>true</arg>
+<doc>Verify that an attribute of an element matches the expected criteria.</doc>
+<status status="PASS" start="2024-03-04T12:23:00.198621" elapsed="0.949521"/>
+</kw>
+<arg>//*[@text='${tab}']</arg>
+<status status="PASS" start="2024-03-04T12:22:59.960297" elapsed="1.187845"/>
+</kw>
+<arg>NEWS</arg>
+<status status="PASS" start="2024-03-04T12:22:59.960297" elapsed="1.187845"/>
+</kw>
+<kw name="Click Tab in Team Page" owner="TeamPage">
+<kw name="Click" owner="General">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:23:01.418150" level="INFO">xpath criteria: //*[@text='TEAM STATS']</msg>
+<arg>${ele}</arg>
+<arg>timeout=${pageloadtimeout}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:23:01.148142" elapsed="0.270008"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:23:01.418150" level="INFO">Clicking element '//*[@text='TEAM STATS']'.</msg>
+<msg time="2024-03-04T12:23:01.719816" level="INFO">xpath criteria: //*[@text='TEAM STATS']</msg>
+<arg>${ele}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2024-03-04T12:23:01.418150" elapsed="0.301666"/>
+</kw>
+<arg>//*[@text='${tab}']</arg>
+<status status="PASS" start="2024-03-04T12:23:01.148142" elapsed="0.571674"/>
+</kw>
+<arg>TEAM STATS</arg>
+<status status="PASS" start="2024-03-04T12:23:01.148142" elapsed="0.571674"/>
+</kw>
+<kw name="Verify Tab Selected in Team Page" owner="TeamPage">
+<kw name="Verify Element is Selected" owner="General">
+<kw name="Verify Element Visibility" owner="General">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:23:02.429796" level="INFO">xpath criteria: //*[@text='TEAM STATS']</msg>
+<arg>${ele}</arg>
+<arg>timeout=${pageloadtimeout}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:23:01.735060" elapsed="0.694736"/>
+</kw>
+<arg>${ele}</arg>
+<status status="PASS" start="2024-03-04T12:23:01.719816" elapsed="0.709980"/>
+</kw>
+<kw name="Element Attribute Should Match" owner="AppiumLibrary">
+<msg time="2024-03-04T12:23:03.524966" level="INFO">Element '//*[@text='TEAM STATS']' attribute 'selected' is 'true' </msg>
+<msg time="2024-03-04T12:23:03.524966" level="INFO">xpath criteria: //*[@text='TEAM STATS']</msg>
+<arg>${ele}</arg>
+<arg>selected</arg>
+<arg>true</arg>
+<doc>Verify that an attribute of an element matches the expected criteria.</doc>
+<status status="PASS" start="2024-03-04T12:23:02.429796" elapsed="1.095170"/>
+</kw>
+<arg>//*[@text='${tab}']</arg>
+<status status="PASS" start="2024-03-04T12:23:01.719816" elapsed="1.805150"/>
+</kw>
+<arg>TEAM STATS</arg>
+<status status="PASS" start="2024-03-04T12:23:01.719816" elapsed="1.805150"/>
+</kw>
+<kw name="Click Navigate Back Image in Team Page" owner="TeamPage">
+<kw name="Click" owner="General">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:23:03.902913" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/toolbar']/*[@class='android.widget.ImageButton']</msg>
+<arg>${ele}</arg>
+<arg>timeout=${pageloadtimeout}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:23:03.524966" elapsed="0.377947"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:23:03.902913" level="INFO">Clicking element '//*[@resource-id='com.fivemobile.thescore:id/toolbar']/*[@class='android.widget.ImageButton']'.</msg>
+<msg time="2024-03-04T12:23:04.725419" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/toolbar']/*[@class='android.widget.ImageButton']</msg>
+<arg>${ele}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2024-03-04T12:23:03.902913" elapsed="0.822506"/>
+</kw>
+<arg>${navigateBackImageTeamPage}</arg>
+<status status="PASS" start="2024-03-04T12:23:03.524966" elapsed="1.200453"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:23:03.524966" elapsed="1.200453"/>
+</kw>
+<kw name="Verify Search Page is Displayed" owner="SearchPage">
+<kw name="Verify Search Bar is Displayed in Search Page" owner="SearchPage">
+<kw name="Verify Element Visibility" owner="General">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:23:05.899460" level="INFO">xpath criteria: //*[@resource-id='com.fivemobile.thescore:id/search_src_text']</msg>
+<arg>${ele}</arg>
+<arg>timeout=${pageloadtimeout}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:23:04.725419" elapsed="1.174041"/>
+</kw>
+<arg>${searchBarSearchPage}</arg>
+<status status="PASS" start="2024-03-04T12:23:04.725419" elapsed="1.174041"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:23:04.725419" elapsed="1.174041"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:23:04.725419" elapsed="1.174041"/>
+</kw>
+<kw name="Verify Tab Selected in Search Page" owner="SearchPage">
+<kw name="Verify Element is Selected" owner="General">
+<kw name="Verify Element Visibility" owner="General">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-03-04T12:23:06.311921" level="INFO">xpath criteria: //*[@text='ALL']</msg>
+<arg>${ele}</arg>
+<arg>timeout=${pageloadtimeout}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-03-04T12:23:05.899460" elapsed="0.412461"/>
+</kw>
+<arg>${ele}</arg>
+<status status="PASS" start="2024-03-04T12:23:05.899460" elapsed="0.427648"/>
+</kw>
+<kw name="Element Attribute Should Match" owner="AppiumLibrary">
+<msg time="2024-03-04T12:23:06.737770" level="INFO">Element '//*[@text='ALL']' attribute 'selected' is 'true' </msg>
+<msg time="2024-03-04T12:23:06.737770" level="INFO">xpath criteria: //*[@text='ALL']</msg>
+<arg>${ele}</arg>
+<arg>selected</arg>
+<arg>true</arg>
+<doc>Verify that an attribute of an element matches the expected criteria.</doc>
+<status status="PASS" start="2024-03-04T12:23:06.327108" elapsed="0.410662"/>
+</kw>
+<arg>//*[@text='${tab}']</arg>
+<status status="PASS" start="2024-03-04T12:23:05.899460" elapsed="0.838310"/>
+</kw>
+<arg>ALL</arg>
+<status status="PASS" start="2024-03-04T12:23:05.899460" elapsed="0.838310"/>
+</kw>
+<kw name="Close TheScore App" owner="TheScoreKeywords">
+<kw name="Execute Command" owner="utility">
+<msg time="2024-03-04T12:23:07.399415" level="INFO">Execute Command - adb -s R5CTA2C3P3V shell am force-stop com.fivemobile.thescore</msg>
+<arg>adb -s ${deviceName} shell am force-stop ${appPackage}</arg>
+<status status="PASS" start="2024-03-04T12:23:06.737770" elapsed="0.661645"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:23:06.737770" elapsed="0.661645"/>
+</kw>
+<arg>team=Toronto Maple Leafs</arg>
+<status status="PASS" start="2024-03-04T12:22:23.174795" elapsed="44.224620"/>
+</kw>
+<kw name="Stop Appium Server" owner="General" type="TEARDOWN">
+<kw name="Is Platform Windows" owner="utility">
+<msg time="2024-03-04T12:23:07.399415" level="INFO">${os} = windows</msg>
+<var>${os}</var>
+<status status="PASS" start="2024-03-04T12:23:07.399415" elapsed="0.000000"/>
+</kw>
+<if>
+<branch type="IF" condition="'${os}' == 'windows'">
+<kw name="Execute Command" owner="utility">
+<msg time="2024-03-04T12:23:07.845160" level="INFO">Execute Command - taskkill /F /IM node.exe /T</msg>
+<arg>taskkill /F /IM node.exe /T</arg>
+<status status="PASS" start="2024-03-04T12:23:07.399415" elapsed="0.445745"/>
+</kw>
+<status status="PASS" start="2024-03-04T12:23:07.399415" elapsed="0.445745"/>
+</branch>
+<status status="PASS" start="2024-03-04T12:23:07.399415" elapsed="0.445745"/>
+</if>
+<status status="PASS" start="2024-03-04T12:23:07.399415" elapsed="0.445745"/>
+</kw>
+<tag>data_driven_tests</tag>
+<status status="PASS" start="2024-03-04T12:22:22.420453" elapsed="45.424707"/>
+</test>
+<status status="PASS" start="2024-03-04T12:20:48.848612" elapsed="138.998660"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="3" fail="0" skip="0">data_driven_tests</stat>
+</tag>
+<suite>
+<stat pass="3" fail="0" skip="0" id="s1" name="SearchTeamDataDrivenTest">SearchTeamDataDrivenTest</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2024-03-04T12:21:09.670066" level="WARN">Keyword 'AppiumLibrary.Click Element At Coordinates' is deprecated. Since selenium v4, use other keywords.</msg>
+<msg time="2024-03-04T12:21:35.457060" level="WARN">Multiple tests with name 'Search Team functionality Test' executed in suite 'SearchTeamDataDrivenTest'.</msg>
+<msg time="2024-03-04T12:21:53.534414" level="WARN">Keyword 'AppiumLibrary.Click Element At Coordinates' is deprecated. Since selenium v4, use other keywords.</msg>
+<msg time="2024-03-04T12:22:22.420453" level="WARN">Multiple tests with name 'Search Team functionality Test' executed in suite 'SearchTeamDataDrivenTest'.</msg>
+<msg time="2024-03-04T12:22:40.725065" level="WARN">Keyword 'AppiumLibrary.Click Element At Coordinates' is deprecated. Since selenium v4, use other keywords.</msg>
+</errors>
+</robot>

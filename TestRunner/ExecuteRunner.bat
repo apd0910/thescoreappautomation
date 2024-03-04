@@ -1,0 +1,1 @@
+robot -d ../Results/%1 -i data_driven_tests ../Tests/SearchTeamDataDrivenTest.robot

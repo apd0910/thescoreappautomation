@@ -1,0 +1,4 @@
+Appium-Python-Client==3.2.1
+robotframework==7.0
+robotframework-appiumlibrary==2.0.0
+robotframework-datadriver==1.11.0
